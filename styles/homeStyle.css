@@ -582,6 +582,8 @@ body{
 /* header */
 
 .header{
+    background: #fff;
+    z-index: 3;
     position: fixed;
     top: 0;
     right: 0;
@@ -659,15 +661,94 @@ body{
     padding: 1.5rem .97rem;
 }
 
+/* main */
+
+.main{
+    padding-top: 9rem;
+}
+
+/* section heade */
+
+.section-heade{
+    position: relative;
+    padding-bottom: 10.4rem;
+}
+
+.section-head__description{
+    padding-right: 1.6rem;
+}
+
+.section-head__title{
+    color: var(--main-text-color);
+    font: bolder 6rem/1.2 'YekanBakhHeavy',"IRANSansWeb","Roboto","Helvetica","Arial",sans-serif;
+}
+
+.section-head__caption{
+    color: #757575;
+    text-align: justify;
+    font: 1.82rem 'YekanBakhMedium';
+    margin: 2.4rem 0 4rem;
+}
+
+.section-heade__banner{
+    padding-right: 0;
+} 
+
+.section-heade__img{
+    width: 100%;
+    height: 100%;
+}
+
+.section-head__btns{
+    display: flex;
+    align-items: center;
+}
+
+.section-head__btn:first-child{
+    background: var(--main-color);
+    color: #fff;
+    margin-left: .8rem;
+}
+
+.section-head__svg{
+    margin-right: 1rem;
+}
+
+.section-heade__arrow{
+    position: absolute;
+    bottom: 0;
+    right: calc(50% - 9rem);
+}
+
 /* responsive */
 
 @media (max-width: 1200px){
-
+    .section-head__title{
+        font-size: 4.5rem;
+    }
 }
 
 @media (max-width: 992px){
     .menu__list-item {
         padding: 0.8rem 1rem;
+    }
+
+    .section-head__title{
+        font-size: 3.5rem;
+    }
+
+    .section-head__caption {
+        font-size: 1.7rem;
+    }
+
+    .section-head__btns{
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .section-head__btn:first-child{
+        margin: 0 0 .8rem 0;
     }
 }
 
@@ -704,7 +785,7 @@ body{
         -moz-transition: .3s;
         -ms-transition: .3s;
         -o-transition: .3s;
-}
+    }
 
     .header-active .total-container-menu{
         opacity: 1;
@@ -725,7 +806,7 @@ body{
         -moz-transition: right .4s;
         -ms-transition: right .4s;
         -o-transition: right .4s;
-}
+    }
 
     .header-active .container-menu{
         right: 0;
@@ -760,8 +841,69 @@ body{
     .nav__shopping-cart {
         padding: 1.13rem .5rem;
     }
+
+    .main .row > *{
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .section-heade .row{
+        flex-direction: column-reverse;
+    }
+
+    .section-head__description {
+        padding-left: 1.6rem;
+    }
+
+    .section-head__title {
+        font-size: 4rem;
+    }
+
+    .section-head__btns {
+        flex-direction: row;
+    }
+
+    .section-head__caption {
+        margin: 1.8rem 0 3rem;
+    }
+
+    .section-head__btn:first-child{
+        margin: 0 0 0 .8rem;
+    }
+
+    .section-heade__arrow{
+        display: none;
+    }
 }
 
 @media (max-width: 576px){
-    
+    .section-head__title {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 420px){
+    .common-style-link {
+        padding: 1rem;
+    }
+
+    .section-head__title {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .section-head__caption {
+        font-size: 1.9rem;
+    }
+
+    .section-head__btns{
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .section-head__btn:first-child{
+        margin: 0 0 .8rem 0;
+    }
 }
