@@ -1,4 +1,5 @@
 const $ = document
+const body = $.body
 const header = $.querySelector('.header')
 const menuHamburger = header.querySelector('.menu-hamburger')
 const menuCrossIcon = header.querySelector('.btn-menu-cross__icon')
@@ -81,10 +82,12 @@ function removeActiveClass(element , classname){
 
 function headerHandler(){
     addActiveClass(header , 'header-active')
+    body.style.overflowY = 'hidden'
 }
 
 function removeActiveClassFromHeader(){
     removeActiveClass(header , 'header-active')
+    body.style.overflowY = 'auto'
 }
 
 function addCoursesToDom(){
