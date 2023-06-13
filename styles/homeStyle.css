@@ -607,6 +607,25 @@ body{
 .menu-hamburger{
     display: none;
     cursor: pointer;
+    width: 5rem;
+    height: 5rem;
+}
+
+.menu-hamburger , .btn-menu-cross__icon{
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    transition: background .25s ease-in-out;
+    -webkit-transition: background .25s ease-in-out;
+    -moz-transition: background .25s ease-in-out;
+    -ms-transition: background .25s ease-in-out;
+    -o-transition: background .25s ease-in-out;
+}
+
+.menu-hamburger:hover , .btn-menu-cross__icon:hover{
+    background: rgba(0, 0, 0, .04);
 }
 
 .menu-hamburger__lines{
@@ -617,8 +636,7 @@ body{
 
 .btn-menu-cross{
     display: none;
-    height: 4rem;
-    padding: .8rem;
+    padding: .2rem 0 .2rem .2rem;
     border-bottom: .1rem solid gainsboro;
     justify-content: flex-end;
 }
@@ -626,8 +644,9 @@ body{
 .btn-menu-cross__icon{
     fill: #0000008a;
     cursor: pointer;
-    width: 2.4rem;
-    height: 2.4rem;
+    padding: .7rem;
+    width: 4.1rem;
+    height: 4.1rem;
 }
 
 .menu__list-item{
