@@ -6,6 +6,8 @@ const menuCrossIcon = header.querySelector('.btn-menu-cross__icon')
 const totalContainerMenu = header.querySelector('.total-container-menu') 
 const courses = $.querySelector('.courses')
 const coursesRow = courses.querySelector('.row')
+
+const footerLogo = $.querySelector('.footer-logo')
 const coursesFragment = $.createDocumentFragment()
 const persian = new Intl.NumberFormat('fa')
 
@@ -182,10 +184,15 @@ function changeDisplay(elements){
     })
 }
 
+function goUpFromFooter(){
+    window.scrollTo(0 , 0)
+}
+
 ////events////
 
 menuHamburger.addEventListener('click' , headerHandler)
 menuCrossIcon.addEventListener('click' , removeActiveClassFromHeader)
 totalContainerMenu.addEventListener('click' , event => (event.target === totalContainerMenu) ? removeActiveClassFromHeader() : null
 )
+footerLogo.addEventListener('click' , goUpFromFooter)
 window.addEventListener('load' , loadingFadeHandler)
