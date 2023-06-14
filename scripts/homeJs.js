@@ -7,6 +7,7 @@ const totalContainerMenu = header.querySelector('.total-container-menu')
 const courses = $.querySelector('.courses')
 const coursesRow = courses.querySelector('.row')
 
+const instaCaption = $.querySelector('.instagram__caption')
 const footerLogo = $.querySelector('.footer-logo')
 const coursesFragment = $.createDocumentFragment()
 const persian = new Intl.NumberFormat('fa')
@@ -188,6 +189,15 @@ function goUpFromFooter(){
     window.scrollTo(0 , 0)
 }
 
+function changeInstaCaptionText(){
+    if(window.innerWidth < 576){
+        instaCaption.innerHTML = 'در <a href="https://www.instagram.com/javascript.front/" class="instagram__link">اینستاگرام</a> همراهمون باشید</p>'
+    }else{
+        instaCaption.innerHTML = 'برای دیدن آموزش های رایگان ما در اینستاگرام، <a href="https://www.instagram.com/javascript.front/" class="instagram__link">اینجا</a> کلیک کنید</p>'
+    }
+}
+changeInstaCaptionText()
+
 ////events////
 
 menuHamburger.addEventListener('click' , headerHandler)
@@ -196,3 +206,4 @@ totalContainerMenu.addEventListener('click' , event => (event.target === totalCo
 )
 footerLogo.addEventListener('click' , goUpFromFooter)
 window.addEventListener('load' , loadingFadeHandler)
+window.addEventListener('resize' , changeInstaCaptionText)
