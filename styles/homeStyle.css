@@ -1010,6 +1010,46 @@ body{
     opacity: .7;
 }
 
+/* instagram */
+
+.section-instagram{
+    margin-top: 16rem;
+}
+
+.instagram{
+    position: relative;
+    background: linear-gradient(90deg, #BA68C8, #F06292, #FFD54F);
+    font: 900 2.6rem 'YekanBakhHeavy';
+    color: #fff;
+    padding: 2.7rem 0;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+
+.instagram__caption{
+    width: fit-content;
+    margin-right: auto;
+    padding: 0 6.4rem;
+}
+
+.instagram__link{
+    color: #0000ee;
+}
+
+.instagram__mockup{
+    position: absolute;
+    right: -5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+
 @keyframes translate{
     from{
         transform:translateX(0);
@@ -1104,6 +1144,18 @@ body{
         margin: .5rem 0;
         width: 32.5%;
     }
+
+    .section-instagram , .footer {
+        margin-top: 12rem;
+    }
+
+    .instagram__caption{
+        margin: auto;
+    }
+
+    .instagram__mockup{
+        display: none;
+    }
 }
 
 @media (max-width: 848px){
@@ -1136,6 +1188,11 @@ body{
 
     .communications-ways{
         margin-top: 4rem;
+    }
+
+    .instagram__caption{
+        font-size: 2.2rem;
+        padding: 0 1.6rem;
     }
 }
 
@@ -1293,6 +1350,11 @@ body{
 
     .sections-of-the-site{
         margin-bottom: 4rem;
+    }
+
+    .instagram__caption{
+        font-size: 2rem;
+        text-align: center;
     }
 }
 
