@@ -543,6 +543,7 @@ li{
 
 html{
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body{
@@ -890,6 +891,125 @@ body{
     margin-right: 1rem;
 }
 
+/* footer */
+
+.footer{
+    margin-top: 19rem;
+}
+
+.total-container-footer{
+    display: flex;
+    margin-bottom: 4rem;
+}
+
+.total-container-footer > div{
+    width: 50%;
+}
+
+.footer__container:nth-child(1){
+    padding-left: 3.2rem;
+}
+
+.footer__container:nth-child(2){
+    padding-right: 3.2rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-detailes__container{
+    display: flex;
+    align-items: center;
+}
+
+.footer-detailes__cover{
+    width: 15rem;
+    max-height: 7.5rem;
+}
+
+.footer-logo{
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+.footer-detailes__texts{
+    color: #616161;
+    margin-right: 1.6rem;
+}
+
+.footer-detailes__title{
+    font: 2rem 'YekanBakhHeavy';
+}
+
+.footer-detailes__text{
+    font-weight: 700;
+    word-spacing: -.2rem;
+}
+
+.footer-detailes__caption{
+    text-align: justify;
+    margin-top: 3.2rem;
+    opacity: .9;
+}
+
+.footer__container:nth-child(2) > *{
+    width: 50%;
+}
+
+.sections-of-the-site * , .secure-payment {
+    color: var(--second-text-color);
+}
+
+.sections-of-the-site__title , .secure-payment__title{
+    font: 2rem 'YekanBakhBold';
+    margin-bottom: 2rem;
+}
+
+.sections-of-the-site-lists__item{
+    position: relative;
+}
+
+.sections-of-the-site-lists__item:not(:last-child){
+    margin-bottom: .8rem;
+}
+
+.sections-of-the-site-lists__item::before{
+    content: '';
+    background: var(--bg-color);
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: .8rem;
+    height: .8rem;
+}
+
+.sections-of-the-site-lists__link{
+    font-family: 'iranyekanweb-Medium';
+    margin-right: 1.5rem;
+}
+
+.communications-ways__link{
+    width: 3rem;
+    height: 3rem;
+}
+
+.communications-ways__svg{
+    fill: var(--main-color);
+}
+
+.communications-ways__link:nth-child(2){
+    margin: 0 1rem;
+}
+
+.footer__text{
+    font-family: 'YekanBakhBold';
+    text-align: center;
+    padding: 1.6rem 0;
+    opacity: .7;
+}
+
 @keyframes translate{
     from{
         transform:translateX(0);
@@ -987,7 +1107,6 @@ body{
 }
 
 @media (max-width: 848px){
-    
     .courses .row{
         column-gap: 2rem;
     }
@@ -996,6 +1115,27 @@ body{
         margin: 1rem 0;
         width: 47.99%;
         flex-grow: 1;
+    }
+
+    .total-container-footer{
+        flex-direction: column;
+    }
+
+    .total-container-footer > div{
+        width: 100%;
+    }
+
+    .footer__container:nth-child(1){
+        padding-left: 0;
+        margin-bottom: 4rem;
+    }
+    
+    .footer__container:nth-child(2){
+        padding-right: 0;
+    }
+
+    .communications-ways{
+        margin-top: 4rem;
     }
 }
 
@@ -1136,6 +1276,23 @@ body{
 @media (max-width: 576px){
     .section-head__title {
         font-size: 3.5rem;
+    }
+
+    .footer-detailes__container{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-detailes__texts{
+        margin-top: 1.6rem;
+    }
+
+    .footer__container:nth-child(2) > * {
+        width: 100%;
+    }
+
+    .sections-of-the-site{
+        margin-bottom: 4rem;
     }
 }
 
