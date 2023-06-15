@@ -6,11 +6,21 @@ const menuCrossIcon = header.querySelector('.btn-menu-cross__icon')
 const totalContainerMenu = header.querySelector('.total-container-menu') 
 const courses = $.querySelector('.courses')
 const coursesRow = courses.querySelector('.row')
+const nextExplanation = $.querySelector('.next-explanation')
+const nextExplanationTitle = $.querySelector('.next-explanation__title')
+const nextExplanationText = $.querySelector('.next-explanation__text')
+const currentExplanation = $.querySelector('.current-explanation')
+const currentExplanationTitle = $.querySelector('.current-explanation__title')
+const currentExplanationText = $.querySelector('.current-explanation__text')
+const nextBtnAboutMe = $.querySelector('.next-btn')
+const prevBtnAboutMe = $.querySelector('.prev-btn')
 
 const instaCaption = $.querySelector('.instagram__caption')
 const footerLogo = $.querySelector('.footer-logo')
 const coursesFragment = $.createDocumentFragment()
 const persian = new Intl.NumberFormat('fa')
+
+let  aboutMeIndex = 0
 
 let coursesInfo = [
     {   id:1 , 
@@ -69,6 +79,11 @@ let coursesInfo = [
         price:309000 ,
         svg:'<svg width="80" viewBox="0 0 112 112"><g transform="translate(-235 -30)"><circle cx="56" cy="56" r="56" transform="translate(235 30)" fill="#ffebee"></circle><g transform="translate(260.251 55.251)"><path d="M30.228,0h1.019A30.486,30.486,0,0,1,44.656,3.386,31.227,31.227,0,0,1,58.8,18.309a30.84,30.84,0,0,1,2.7,12.044v1.015a30.543,30.543,0,0,1-4.012,14.59A30.815,30.815,0,0,1,31.267,61.5h-1.02A30.8,30.8,0,0,1,.812,37.833,31.425,31.425,0,0,1,0,31.384V30.371A30.868,30.868,0,0,1,4.755,14.48,31.227,31.227,0,0,1,16.77,3.423,30.488,30.488,0,0,1,30.228,0M23.571,4.591a27.118,27.118,0,0,0-10.717,5.857A27.625,27.625,0,0,0,6.025,19.7a26.892,26.892,0,0,0,9.1,33.185,27.569,27.569,0,0,0,6.612,3.427V51.449a7.875,7.875,0,0,1-3.507-.01,7.079,7.079,0,0,1-3.853-2.378c-.728-.816-1.166-1.857-1.972-2.608a2.973,2.973,0,0,0-2.193-1.07q-.164-1.791-.32-3.583a6.123,6.123,0,0,1,2.2.269,8.218,8.218,0,0,1,4.066,3.267,5.831,5.831,0,0,0,2.127,2.317,4.478,4.478,0,0,0,3.524-.007,8.366,8.366,0,0,1,.939-3.155,18.756,18.756,0,0,1-6.317-3.023,13.782,13.782,0,0,1-4.538-5.8,15.818,15.818,0,0,1,1.53-14.919c.121-.189.332-.378.241-.626a15.592,15.592,0,0,1-.184-4.881,6.48,6.48,0,0,1,1.079-3.077,2.734,2.734,0,0,1,2.514-1.083c2.653.195,4.961,1.641,7.19,2.96.8-.189,1.6-.4,2.411-.513a25.4,25.4,0,0,1,10.62.509c2.068-1.259,4.2-2.614,6.657-2.918a3.112,3.112,0,0,1,2.364.449,4.583,4.583,0,0,1,1.575,2.914,15.183,15.183,0,0,1-.07,5.727c-.024.3.277.508.41.757a15.727,15.727,0,0,1,2.556,9.065A14.624,14.624,0,0,1,47.9,38.66a15.437,15.437,0,0,1-6.5,4.9,25.821,25.821,0,0,1-2.653.933,8.437,8.437,0,0,1,.978,3.786c.073,2.676.012,5.355.032,8.032A27.383,27.383,0,0,0,54.3,44.205a26.758,26.758,0,0,0,3.13-18.273A27.47,27.47,0,0,0,47.606,9.573,26.79,26.79,0,0,0,23.571,4.591M17.4,20.288c.277,1.17-.694,2.037-1.273,2.92a12.421,12.421,0,0,0-1.077,10.739,10.619,10.619,0,0,0,2.635,3.86,12.683,12.683,0,0,0,4.907,2.874,38.847,38.847,0,0,0,6.249,1.249c-.543.816-1.075,1.638-1.625,2.449a9.067,9.067,0,0,0-1.63,2.713,8.147,8.147,0,0,0-.239,2.034q0,4.113,0,8.228a27.587,27.587,0,0,0,10.805,0q.007-4.117,0-8.235a7.832,7.832,0,0,0-.237-2.029,9.471,9.471,0,0,0-1.668-2.764c-.533-.8-1.058-1.6-1.588-2.4a44.03,44.03,0,0,0,5.782-1.1,14.2,14.2,0,0,0,4.34-2.122,11.287,11.287,0,0,0,3.332-4A12.312,12.312,0,0,0,45.555,23.5a15.512,15.512,0,0,1-1.407-2.2c-.265-.774.133-1.537.244-2.3a11.2,11.2,0,0,0-.133-4.275A12.612,12.612,0,0,0,40,16.584a9.758,9.758,0,0,1-1.933,1.052,3.651,3.651,0,0,1-1.8-.121,21.378,21.378,0,0,0-10.264-.186,14.293,14.293,0,0,1-1.988.382,4.571,4.571,0,0,1-2.307-.992,13.415,13.415,0,0,0-4.474-1.994A11.251,11.251,0,0,0,17.4,20.288Z" fill="#e53935"></path></g></g></svg>'  
     }
+]
+let aboutMeInfo = [
+    { title:'چرا برنامه نویس شدم؟' , text:'سلام، من میلادم. سال ۹۴ رشته نفت قبول شدم و به هوای اینکه قراره آینده شغلی و مالی خوبی داشته باشم رفتم دانشگاه ولی همون ترم اول متوجه شدم که همه چی دقیقا برعکس تصوراتم بوده و اصلا اون چیزی نیست که فکرشو میکردم و همین جرقه‌ای شد که دنبال یک مهارت دیگه باشم و بعد از کلی تحقیق به برنامه نویسی رسیدم.' },
+    { title:'چرا برنامه نویسی رو انتخاب کردم؟' , text:'برای من برنامه نویسی خیلی ایده‌آل بود، شرایط کاری یکنواختی نداشت، باید با تکنولوژی های جدید خودمو آپدیت کنم، امکان کار به صورت ریموت (دورکاری) رو داره و برای منی‌ که شهرستان هستم عالی بود. و در نهایت واقعا از خلق کردن یک محصول و دیدن نتیجه نهایی لذت میبرم.' },
+    { title:'از برنامه نویسی راضی هستم؟' , text:'هر کاری سختی و چالش های خودشو داره و برنامه نویسی هم از این قاعده مستثنی‌نیست اما در کل از انتخابم واقعا راضیم. برنامه نویسی من رو وارد مسیری کرد که خیلی از محدودیت هارو برداشت و تونستم کار های مفیدی انجام بدم، انجام دادن کار های مفید که به نفع مردم هست همیشه بهترین حس رو به آدم میده.' }
 ]
 
 ////add classes////
@@ -198,6 +213,36 @@ function changeInstaCaptionText(){
 }
 changeInstaCaptionText()
 
+function setAnimation(currentElement , nextElement){
+    currentElement.style.animation = 'currentAnimation .4s ease-in-out'
+    currentElement.onanimationend = () => currentExplanation.style.animation = ''
+    nextElement.style.animation = 'nextAnimation .4s ease-in-out'
+    nextElement.onanimationend = () => nextExplanation.style.animation = ''
+}
+
+function moveTheElements(currentTitle , currentText , nextTitle , currentIndex , nextIndex ){
+    currentTitle.innerText = aboutMeInfo[currentIndex].title
+    currentText.innerText = aboutMeInfo[currentIndex].text 
+    nextTitle.innerText = aboutMeInfo[nextIndex].title
+}
+
+function nextSlide(){
+    ++aboutMeIndex
+    if(aboutMeIndex > aboutMeInfo.length - 1) aboutMeIndex = 0
+    moveTheElements( currentExplanationTitle, currentExplanationText, nextExplanationTitle , aboutMeIndex , aboutMeIndex) 
+    nextExplanationText.innerText = aboutMeInfo[aboutMeIndex].text
+    setAnimation(currentExplanation , nextExplanation)
+}
+
+function prevSlide(){
+    aboutMeIndex--
+    if(aboutMeIndex < 0) aboutMeIndex = aboutMeInfo.length - 1
+    moveTheElements( currentExplanationTitle , currentExplanationText , nextExplanationTitle , aboutMeIndex , aboutMeIndex--)
+    aboutMeIndex++
+    nextExplanationText.innerText = aboutMeInfo[aboutMeIndex].text
+    setAnimation(currentExplanation , nextExplanation)
+}
+
 ////events////
 
 menuHamburger.addEventListener('click' , headerHandler)
@@ -206,4 +251,6 @@ totalContainerMenu.addEventListener('click' , event => (event.target === totalCo
 )
 footerLogo.addEventListener('click' , goUpFromFooter)
 window.addEventListener('load' , loadingFadeHandler)
+nextBtnAboutMe.addEventListener('click' , nextSlide)
+prevBtnAboutMe.addEventListener('click' , prevSlide)
 window.addEventListener('resize' , changeInstaCaptionText)
