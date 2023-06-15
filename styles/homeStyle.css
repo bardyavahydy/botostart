@@ -1050,6 +1050,145 @@ body{
     -o-transform: translateY(-50%);
 }
 
+/* section-about-me */
+
+.section-about-me{
+    margin: 16rem 0;
+}
+
+.section-about-me__wrapper{
+    display: flex;
+}
+
+.section-about-me__banner{
+    flex-shrink: 0;
+    position: relative;
+    max-width: 35rem;
+    max-height: 43rem;
+}
+
+.section-about-me__img{
+    width: 100%;
+    height: 100%;
+}
+
+.section-about-me__question-mark{
+    font-family: 'YekanBakhHeavy';
+    position: absolute;
+    font-weight: 900;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.question-mark-one{
+    top: 3rem;
+    right: 5rem;
+    background: #FFEBEE;
+    color: #E53935;
+    width: 6rem;
+    height: 6rem;
+    font-size: 3rem;
+}
+
+.question-mark-two{
+    top: 9rem;    
+    right: 28rem;
+    background: #E0F7FA;
+    color: #1E88E5;
+    width: 5rem;
+    height: 5rem; 
+    font-size: 2.5rem;   
+}
+
+.question-mark-three{
+    top: 14rem;    
+    right: 2rem;
+    background: #FFFDE7;
+    color: #FDD835;
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;    
+}
+
+.total-container-about-me{
+    width: 100%;
+    flex-direction: column;
+}
+
+.container-about-me{
+    position: relative;
+    min-height: 28rem;
+    width: 100%;
+    margin-bottom: 4rem;
+}
+
+.container-about-me::before{
+    content: '';
+    transform: rotate(10deg);
+    -webkit-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+}
+
+.container-about-me::before , .current-explanation , .next-explanation{
+    background: #fff;
+    box-shadow: rgba(126, 87, 194, 0.16) 0px 4px 12px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width: 50rem;
+    min-height: 28rem;
+    border-radius: 1.5rem;
+    -webkit-border-radius: 1.5rem;
+    -moz-border-radius: 1.5rem;
+    -ms-border-radius: 1.5rem;
+    -o-border-radius: 1.5rem;
+}
+
+.next-explanation{
+    transform:  rotate(5deg);
+    -webkit-transform:  rotate(5deg);
+    -moz-transform:  rotate(5deg);
+    -ms-transform:  rotate(5deg);
+    -o-transform:  rotate(5deg);
+}
+
+.current-explanation , .next-explanation{
+    padding: 3.5rem 3rem 3rem;
+}
+
+.next-explanation__title , .current-explanation__title{
+    color: var(--main-color);
+    font: 2.4rem 'YekanBakhHeavy';
+    font-weight: 900;
+    margin-bottom: 2rem;
+}
+
+.next-explanation__text , .current-explanation__text{
+    font-family: 'YekanBakhMedium';
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.about-me__btn{
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.next-btn , .prev-btn{
+    cursor: pointer;
+}
+
+.next-btn{
+    margin-left: 2rem;
+}
+
 @keyframes translate{
     from{
         transform:translateX(0);
@@ -1081,7 +1220,7 @@ body{
         -moz-transform:scale(1);
         -ms-transform:scale(1);
         -o-transform:scale(1);
-}
+    }
 }
 
 @keyframes scale0{
@@ -1091,13 +1230,63 @@ body{
         -moz-transform: scale(1);
         -ms-transform: scale(1);
         -o-transform: scale(1);
-}
+    }
     to{
         transform:scale(0);
         -webkit-transform:scale(0);
         -moz-transform:scale(0);
         -ms-transform:scale(0);
         -o-transform:scale(0);
+    }   
+}
+
+@keyframes nextAnimation{
+    0%{
+        transform: translateY(0) rotate(5deg);
+        -webkit-transform: translateY(0) rotate(5deg);
+        -moz-transform: translateY(0) rotate(5deg);
+        -ms-transform: translateY(0) rotate(5deg);
+        -o-transform: translateY(0) rotate(5deg);
+    }
+    50%{
+        transform: translateY(-120%) rotate(-15deg);
+        -webkit-transform: translateY(-120%) rotate(-15deg);
+        -moz-transform: translateY(-120%) rotate(-15deg);
+        -ms-transform: translateY(-120%) rotate(-15deg);
+        -o-transform: translateY(-120%) rotate(-15deg);
+}
+    100%{
+        transform: translateY(0) rotate(0deg);
+        -webkit-transform: translateY(0) rotate(0deg);
+        -moz-transform: translateY(0) rotate(0deg);
+        -ms-transform: translateY(0) rotate(0deg);
+        -o-transform: translateY(0) rotate(0deg);
+        z-index: 7;
+    }
+}
+
+@keyframes currentAnimation{
+    0%{
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+}
+    50%{
+        transform: translateY(15%) rotate(-2.5deg);
+        -webkit-transform: translateY(15%) rotate(-2.5deg);
+        -moz-transform: translateY(15%) rotate(-2.5deg);
+        -ms-transform: translateY(15%) rotate(-2.5deg);
+        -o-transform: translateY(15%) rotate(-2.5deg);
+}
+    100%{
+        transform: translateY(0) rotate(5deg);
+        -webkit-transform: translateY(0) rotate(5deg);
+        -moz-transform: translateY(0) rotate(5deg);
+        -ms-transform: translateY(0) rotate(5deg);
+        -o-transform: translateY(0) rotate(5deg);
+        z-index: 6;
 }
 }
 
@@ -1155,6 +1344,18 @@ body{
 
     .instagram__mockup{
         display: none;
+    }
+
+    .section-about-me{
+        margin: 12rem 0;
+    }
+
+    .section-about-me__wrapper {
+        flex-direction: column;
+    }
+
+    .section-about-me__banner{
+        margin: 0 auto 10rem;
     }
 }
 
@@ -1356,6 +1557,20 @@ body{
         font-size: 2rem;
         text-align: center;
     }
+
+    .container-about-me::before, .current-explanation, .next-explanation{
+        max-width: 100%;
+        margin: 0 1.6rem ;
+    }
+
+    .current-explanation, .next-explanation {
+        padding: 2rem;
+    }
+
+    .next-explanation__title, .current-explanation__title{
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
 }
 
 @media (max-width: 420px){
@@ -1381,5 +1596,24 @@ body{
 
     .section-head__btn:first-child{
         margin: 0 0 .8rem 0;
+    }
+
+    .question-mark-one , .question-mark-three{
+        right: 0;
+    }
+
+    .question-mark-two{
+        left: 0;
+        right: auto;
+    }
+}
+
+@media (max-width: 376px){
+    .container-about-me::before , .current-explanation , .next-explanation{
+        min-height: 32rem;
+    }
+
+    .container-about-me{
+        margin-bottom: 7rem;
     }
 }
