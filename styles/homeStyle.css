@@ -554,7 +554,7 @@ body{
     color: var(--main-text-color);
 }
 
-/* componant */
+/* component */
 
 .common-style-link{
     background: var(--bg-color);
@@ -687,9 +687,9 @@ body{
     padding-top: 9rem;
 }
 
-/* section heade */
+/* section head */
 
-.section-heade{
+.section-head{
     position: relative;
     padding-bottom: 10.4rem;
 }
@@ -710,11 +710,11 @@ body{
     margin: 2.4rem 0 4rem;
 }
 
-.section-heade__banner{
+.section-head__banner{
     padding-right: 0;
 } 
 
-.section-heade__img{
+.section-head__img{
     width: 100%;
     height: 100%;
 }
@@ -734,7 +734,7 @@ body{
     margin-right: 1rem;
 }
 
-.section-heade__arrow{
+.section-head__arrow{
     position: absolute;
     bottom: 0;
     right: calc(50% - 9rem);
@@ -916,12 +916,12 @@ body{
     flex-wrap: wrap;
 }
 
-.footer-detailes__container{
+.footer-details__container{
     display: flex;
     align-items: center;
 }
 
-.footer-detailes__cover{
+.footer-details__cover{
     width: 15rem;
     max-height: 7.5rem;
 }
@@ -932,21 +932,21 @@ body{
     height: 100%;
 }
 
-.footer-detailes__texts{
+.footer-details__texts{
     color: #616161;
     margin-right: 1.6rem;
 }
 
-.footer-detailes__title{
+.footer-details__title{
     font: 2rem 'YekanBakhHeavy';
 }
 
-.footer-detailes__text{
+.footer-details__text{
     font-weight: 700;
     word-spacing: -.2rem;
 }
 
-.footer-detailes__caption{
+.footer-details__caption{
     text-align: justify;
     margin-top: 3.2rem;
     opacity: .9;
@@ -1492,7 +1492,7 @@ body{
         padding-right: 0;
     }
 
-    .section-heade .row{
+    .section-head .row{
         flex-direction: column-reverse;
     }
 
@@ -1516,7 +1516,7 @@ body{
         margin: 0 0 0 .8rem;
     }
 
-    .section-heade__arrow{
+    .section-head__arrow{
         display: none;
     }
     
@@ -1536,12 +1536,12 @@ body{
         font-size: 3.5rem;
     }
 
-    .footer-detailes__container{
+    .footer-details__container{
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .footer-detailes__texts{
+    .footer-details__texts{
         margin-top: 1.6rem;
     }
 
