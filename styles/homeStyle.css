@@ -96,6 +96,10 @@ li{
     list-style: none;
 }
 
+p{
+    text-align: justify;
+}
+
 /* grid system */
 
 .container{
@@ -580,6 +584,16 @@ body{
     justify-content: space-between;
 }
 
+.align-items-center{
+    display: flex;
+    align-items: center;
+}
+
+.Hfull-Vful{
+    width: 100%;
+    height: 100%;
+}
+
 /* header */
 
 .header{
@@ -598,11 +612,6 @@ body{
 .logo{
     width: 10rem;
     height: 5rem;
-}
-
-.logo__img{
-    width: 100%;
-    height: 100%;
 }
 
 .menu-hamburger{
@@ -705,7 +714,6 @@ body{
 
 .section-head__caption{
     color: #757575;
-    text-align: justify;
     font: 1.82rem 'YekanBakhMedium';
     margin: 2.4rem 0 4rem;
 }
@@ -713,16 +721,6 @@ body{
 .section-head__banner{
     padding-right: 0;
 } 
-
-.section-head__img{
-    width: 100%;
-    height: 100%;
-}
-
-.section-head__btns{
-    display: flex;
-    align-items: center;
-}
 
 .section-head__btn:first-child{
     background: var(--main-color);
@@ -747,7 +745,7 @@ body{
     margin-bottom: 4.8rem;
 }
 
-.section-courses__title{
+.section-courses__title , .section-students-comments__title{
     font: 900 2.8rem/1.2 'YekanBakhHeavy';
     margin-right: .8rem;
 }
@@ -780,8 +778,6 @@ body{
 }
 
 .course__time-details , .course__students{
-    display: flex;
-    align-items: center;
     font-size: 1.2rem;
 }
 
@@ -887,167 +883,8 @@ body{
     font-family: 'iranyekanweb-Medium';
 }
 
-.course__arrow-svg{
+.course__arrow-svg , .section-students-comments__svg{
     margin-right: 1rem;
-}
-
-/* footer */
-
-.footer{
-    margin-top: 19rem;
-}
-
-.total-container-footer{
-    display: flex;
-    margin-bottom: 4rem;
-}
-
-.total-container-footer > div{
-    width: 50%;
-}
-
-.footer__container:nth-child(1){
-    padding-left: 3.2rem;
-}
-
-.footer__container:nth-child(2){
-    padding-right: 3.2rem;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.footer-details__container{
-    display: flex;
-    align-items: center;
-}
-
-.footer-details__cover{
-    width: 15rem;
-    max-height: 7.5rem;
-}
-
-.footer-logo{
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-}
-
-.footer-details__texts{
-    color: #616161;
-    margin-right: 1.6rem;
-}
-
-.footer-details__title{
-    font: 2rem 'YekanBakhHeavy';
-}
-
-.footer-details__text{
-    font-weight: 700;
-    word-spacing: -.2rem;
-}
-
-.footer-details__caption{
-    text-align: justify;
-    margin-top: 3.2rem;
-    opacity: .9;
-}
-
-.footer__container:nth-child(2) > *{
-    width: 50%;
-}
-
-.sections-of-the-site * , .secure-payment {
-    color: var(--second-text-color);
-}
-
-.sections-of-the-site__title , .secure-payment__title{
-    font: 2rem 'YekanBakhBold';
-    margin-bottom: 2rem;
-}
-
-.sections-of-the-site-lists__item{
-    position: relative;
-}
-
-.sections-of-the-site-lists__item:not(:last-child){
-    margin-bottom: .8rem;
-}
-
-.sections-of-the-site-lists__item::before{
-    content: '';
-    background: var(--bg-color);
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    width: .8rem;
-    height: .8rem;
-}
-
-.sections-of-the-site-lists__link{
-    font-family: 'iranyekanweb-Medium';
-    margin-right: 1.5rem;
-}
-
-.communications-ways__link{
-    width: 3rem;
-    height: 3rem;
-}
-
-.communications-ways__svg{
-    fill: var(--main-color);
-}
-
-.communications-ways__link:nth-child(2){
-    margin: 0 1rem;
-}
-
-.footer__text{
-    font-family: 'YekanBakhBold';
-    text-align: center;
-    padding: 1.6rem 0;
-    opacity: .7;
-}
-
-/* instagram */
-
-.section-instagram{
-    margin-top: 16rem;
-}
-
-.instagram{
-    position: relative;
-    background: linear-gradient(90deg, #BA68C8, #F06292, #FFD54F);
-    font: 900 2.6rem 'YekanBakhHeavy';
-    color: #fff;
-    padding: 2.7rem 0;
-    border-radius: 1rem;
-    -webkit-border-radius: 1rem;
-    -moz-border-radius: 1rem;
-    -ms-border-radius: 1rem;
-    -o-border-radius: 1rem;
-}
-
-.instagram__caption{
-    width: fit-content;
-    margin-right: auto;
-    padding: 0 6.4rem;
-}
-
-.instagram__link{
-    color: #0000ee;
-}
-
-.instagram__mockup{
-    position: absolute;
-    right: -5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
 }
 
 /* section-about-me */
@@ -1065,11 +902,6 @@ body{
     position: relative;
     max-width: 35rem;
     max-height: 43rem;
-}
-
-.section-about-me__img{
-    width: 100%;
-    height: 100%;
 }
 
 .section-about-me__question-mark{
@@ -1134,20 +966,25 @@ body{
     -o-transform: rotate(10deg);
 }
 
-.container-about-me::before , .current-explanation , .next-explanation{
-    background: #fff;
-    box-shadow: rgba(126, 87, 194, 0.16) 0px 4px 12px;
+.container-about-me::before , .current-explanation , .next-explanation , .video-parent{
     position: absolute;
     left: 0;
     right: 0;
-    margin: 0 auto;
-    max-width: 50rem;
-    min-height: 28rem;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    box-shadow: rgba(126, 87, 194, 0.16) 0px 4px 12px;
     border-radius: 1.5rem;
     -webkit-border-radius: 1.5rem;
     -moz-border-radius: 1.5rem;
     -ms-border-radius: 1.5rem;
     -o-border-radius: 1.5rem;
+}
+
+.container-about-me::before , .current-explanation , .next-explanation{
+    background: #fff;
+    max-width: 50rem;
+    min-height: 28rem;
 }
 
 .next-explanation{
@@ -1172,22 +1009,255 @@ body{
 .next-explanation__text , .current-explanation__text{
     font-family: 'YekanBakhMedium';
     line-height: 1.7;
-    text-align: justify;
 }
 
-.about-me__btn{
+.about-me__btn , .section-students-comments__btn{
     background: transparent;
     border: none;
     outline: none;
 }
 
-.next-btn , .prev-btn{
+.next-btn , .prev-btn , #next-video-btn , #prev-video-btn{
     cursor: pointer;
 }
 
-.next-btn{
+.next-btn , #next-video-btn{
     margin-left: 2rem;
 }
+
+/* section-students-comments */
+
+.section-students-comments__container_title{
+    margin: 0 0 4rem;
+}
+
+.container-student-informations{
+    display: flex;
+}
+
+.student-informations{
+    flex-shrink: 0;
+    width: 32.5%;
+}
+
+.student-informations__profile{
+    background: #dbdbdb;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.student-informations__profile-svg{
+    width: 5.2rem;
+    height: 5.2rem;
+}
+
+.student-informations__about-name{
+    margin-right: 2.4rem;
+}
+
+.student-informations__username{
+    font-family: 'YekanBakhMedium';
+    font-weight: 500;
+}
+
+.student-informations__career{
+    font: 1.4rem 'IRANSansWeb';
+    margin-top: .8rem;
+}
+
+.student-informations__comment{
+    font-weight: 900;
+    margin: 3.2rem 0;
+    min-height: 13.5rem;
+}
+
+.section-students-comments__btns-and-link{
+    gap: 4rem;
+}
+
+.student-videos{
+    position: relative;
+    width: calc(100% - 32.5%);
+}
+
+.video-parent{
+    max-width: 40rem;
+    height: 26.7rem;
+    overflow: hidden;
+}
+
+.video-one{
+    transform: rotateZ(-20deg);
+    -webkit-transform: rotateZ(-20deg);
+    -moz-transform: rotateZ(-20deg);
+    -ms-transform: rotateZ(-20deg);
+    -o-transform: rotateZ(-20deg);
+}
+
+.video-two{
+    transform: rotateZ(-10deg);
+    -webkit-transform: rotateZ(-10deg);
+    -moz-transform: rotateZ(-10deg);
+    -ms-transform: rotateZ(-10deg);
+    -o-transform: rotateZ(-10deg);
+}
+
+/* instagram */
+
+.section-instagram{
+    margin-top: 16rem;
+}
+
+.instagram{
+    position: relative;
+    background: linear-gradient(90deg, #BA68C8, #F06292, #FFD54F);
+    font: 900 2.6rem 'YekanBakhHeavy';
+    color: #fff;
+    padding: 2.7rem 0;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+
+.instagram__caption{
+    width: fit-content;
+    margin-right: auto;
+    padding: 0 6.4rem;
+}
+
+.instagram__link{
+    color: #0000ee;
+}
+
+.instagram__mockup{
+    position: absolute;
+    right: -5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+
+/* footer */
+
+.footer{
+    margin-top: 19rem;
+}
+
+.total-container-footer{
+    display: flex;
+    margin-bottom: 4rem;
+}
+
+.total-container-footer > div{
+    width: 50%;
+}
+
+.footer__container:nth-child(1){
+    padding-left: 3.2rem;
+}
+
+.footer__container:nth-child(2){
+    padding-right: 3.2rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-details__cover{
+    width: 15rem;
+    max-height: 7.5rem;
+}
+
+.footer-logo{
+    cursor: pointer;
+}
+
+.footer-details__texts{
+    color: #616161;
+    margin-right: 1.6rem;
+}
+
+.footer-details__title{
+    font: 2rem 'YekanBakhHeavy';
+}
+
+.footer-details__text{
+    font-weight: 700;
+    word-spacing: -.2rem;
+}
+
+.footer-details__caption{
+    margin-top: 3.2rem;
+    opacity: .9;
+}
+
+.footer__container:nth-child(2) > *{
+    width: 50%;
+}
+
+.sections-of-the-site * , .secure-payment {
+    color: var(--second-text-color);
+}
+
+.sections-of-the-site__title , .secure-payment__title{
+    font: 2rem 'YekanBakhBold';
+    margin-bottom: 2rem;
+}
+
+.sections-of-the-site-lists__item{
+    position: relative;
+}
+
+.sections-of-the-site-lists__item:not(:last-child){
+    margin-bottom: .8rem;
+}
+
+.sections-of-the-site-lists__item::before{
+    content: '';
+    background: var(--bg-color);
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: .8rem;
+    height: .8rem;
+}
+
+.sections-of-the-site-lists__link{
+    font-family: 'iranyekanweb-Medium';
+    margin-right: 1.5rem;
+}
+
+.communications-ways__link{
+    width: 3rem;
+    height: 3rem;
+}
+
+.communications-ways__svg{
+    fill: var(--main-color);
+}
+
+.communications-ways__link:nth-child(2){
+    margin: 0 1rem;
+}
+
+.footer__text{
+    font-family: 'YekanBakhBold';
+    text-align: center;
+    padding: 1.6rem 0;
+    opacity: .7;
+}
+
 
 @keyframes translate{
     from{
@@ -1290,6 +1360,56 @@ body{
 }
 }
 
+@keyframes nextVideo{
+    0%{
+        transform: translateY(0) rotate(-10deg);
+        -webkit-transform: translateY(0) rotate(-10deg);
+        -moz-transform: translateY(0) rotate(-10deg);
+        -ms-transform: translateY(0) rotate(-10deg);
+        -o-transform: translateY(0) rotate(-10deg);
+}
+    50%{
+        transform: translateY(-120%) rotate(-20deg);
+        -webkit-transform: translateY(-120%) rotate(-20deg);
+        -moz-transform: translateY(-120%) rotate(-20deg);
+        -ms-transform: translateY(-120%) rotate(-20deg);
+        -o-transform: translateY(-120%) rotate(-20deg);
+}
+    100%{
+        transform: translateY(0) rotate(0deg);
+        -webkit-transform: translateY(0) rotate(0deg);
+        -moz-transform: translateY(0) rotate(0deg);
+        -ms-transform: translateY(0) rotate(0deg);
+        -o-transform: translateY(0) rotate(0deg);
+        z-index: 7;
+    }
+}
+
+@keyframes currentVideo{
+    0%{
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+}
+    50%{
+        transform: translateY(15%) rotate(-5deg);
+        -webkit-transform: translateY(15%) rotate(-5deg);
+        -moz-transform: translateY(15%) rotate(-5deg);
+        -ms-transform: translateY(15%) rotate(-5deg);
+        -o-transform: translateY(15%) rotate(-5deg);
+}
+    100%{
+        transform: translateY(0) rotate(-10deg);
+        -webkit-transform: translateY(0) rotate(-10deg);
+        -moz-transform: translateY(0) rotate(-10deg);
+        -ms-transform: translateY(0) rotate(-10deg);
+        -o-transform: translateY(0) rotate(-10deg);
+        z-index: 6;
+}
+}
+
 /* responsive */
 
 @media (max-width: 1200px){
@@ -1300,6 +1420,14 @@ body{
     .courses .row > *{
         width: 31%;
     }
+    
+    .student-informations {
+        width: 40.5%;
+    }
+
+    .student-videos{
+        width: calc(100% - 40.5%);
+    } 
 }
 
 @media (max-width: 992px){
@@ -1370,7 +1498,7 @@ body{
         flex-grow: 1;
     }
 
-    .total-container-footer{
+    .total-container-footer , .container-student-informations{
         flex-direction: column;
     }
 
@@ -1394,6 +1522,23 @@ body{
     .instagram__caption{
         font-size: 2.2rem;
         padding: 0 1.6rem;
+    }
+
+    .student-informations , .student-videos{
+        width: 100%;
+    } 
+
+    .student-informations__comment{
+        min-height: 6.75rem;
+    }
+
+    .section-students-comments__btns-and-link{
+        justify-content: center;
+    }
+
+    .student-videos {
+        height: 38.6rem;
+        margin-top: 5rem;
     }
 }
 
@@ -1571,6 +1716,17 @@ body{
         font-size: 2rem;
         margin-bottom: 1rem;
     }
+
+    .video-parent{
+        max-width: 40rem;
+    }
+}
+
+@media (max-width: 490px){
+    .video-parent{
+        max-width: 33rem;
+        height: 22rem;
+    }
 }
 
 @media (max-width: 420px){
@@ -1605,6 +1761,15 @@ body{
     .question-mark-two{
         left: 0;
         right: auto;
+    }
+
+    .student-videos {
+        height: 24.6rem;
+    }
+
+    .video-parent{
+        max-width: 26rem;
+        height: 17.4rem;
     }
 }
 
