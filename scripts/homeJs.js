@@ -14,13 +14,23 @@ const currentExplanationTitle = $.querySelector('.current-explanation__title')
 const currentExplanationText = $.querySelector('.current-explanation__text')
 const nextBtnAboutMe = $.querySelector('.next-btn')
 const prevBtnAboutMe = $.querySelector('.prev-btn')
+const studentUsername = $.querySelector('.student-informations__username')
+const studentCareer = $.querySelector('.student-informations__career')
+const studentComment = $.querySelector('.student-informations__comment')
+const nextVideoBtn = $.getElementById('next-video-btn')
+const prevVideoBtn = $.getElementById('prev-video-btn')
+const nextVideo = $.querySelector('.next-video')
+const nextVideoParent = $.querySelector('.next-video-parent')
+const currentVideo = $.querySelector('.current-video')
+const currentVideoParent = $.querySelector('.current-video-parent')
 
 const instaCaption = $.querySelector('.instagram__caption')
 const footerLogo = $.querySelector('.footer-logo')
 const coursesFragment = $.createDocumentFragment()
 const persian = new Intl.NumberFormat('fa')
 
-let  aboutMeIndex = 0
+let aboutMeIndex = 0
+let studentIndex = 0
 
 let coursesInfo = [
     {   id:1 , 
@@ -85,6 +95,24 @@ let aboutMeInfo = [
     { title:'چرا برنامه نویسی رو انتخاب کردم؟' , text:'برای من برنامه نویسی خیلی ایده‌آل بود، شرایط کاری یکنواختی نداشت، باید با تکنولوژی های جدید خودمو آپدیت کنم، امکان کار به صورت ریموت (دورکاری) رو داره و برای منی‌ که شهرستان هستم عالی بود. و در نهایت واقعا از خلق کردن یک محصول و دیدن نتیجه نهایی لذت میبرم.' },
     { title:'از برنامه نویسی راضی هستم؟' , text:'هر کاری سختی و چالش های خودشو داره و برنامه نویسی هم از این قاعده مستثنی‌نیست اما در کل از انتخابم واقعا راضیم. برنامه نویسی من رو وارد مسیری کرد که خیلی از محدودیت هارو برداشت و تونستم کار های مفیدی انجام بدم، انجام دادن کار های مفید که به نفع مردم هست همیشه بهترین حس رو به آدم میده.' }
 ]
+let videoStudents = [ "../video/samira-farokhnezhad.mov" , "../video/sorena-ganji.mov" , "../video/amir-khosroshahi.mov" ]
+let studentsInfos = [
+    {
+     username:'سمیرا فرخ نژاد(ساکن استرالیا)' ,
+     career:'دانشجوی جاوااسکریپت و ریکت' , 
+     comment:'من سه ماه پیش دوره های ریکت و جاوااسکریپت سایت بوتواستارت رو شرکت کردم، پشتیبانی دوره واقعا عالی بود. از لحظه به لحظه دوره لذت بردم و الانم منجر به کار پیدا کردن من شد.'
+    },
+    {
+     username:'سورنا گنجی' ,
+     career:'دانشجوی جاوااسکریپت و ریکت' , 
+     comment:'این دوره، اولین انتخاب من نبود ولی وقتی بقیه دوره هارو رصد کردم دیدم مثل این دوره تو دوره های فارسی اصلا نیست. مباحث خیلی کامل و جامع گفته شده و پشتیبانی خیلی خوبی داره.یکی از خوبی ها استاد اینه که مباحث پیچیده رو خیلی ساده توضیح میدن و تو مراحل مصاحبه هم همراهم بودن.'
+    },
+    {
+     username:'امیر خسروشاهی' ,
+     career:'دانشجوی جاوااسکریپت و ریکت' , 
+     comment:'من بعد از مشاهده دوره ها و پشت سر گذاشتن یه سری مصاحبه های فنی تونستم استخدام بشم. تموم نکاتی رو که دوره گفتی تو مصاحبه پرسیدن و تونستم به خوبی قبول بشم.'
+    }
+]
 
 ////add classes////
 
@@ -125,7 +153,7 @@ function addCoursesToDom(){
         courseTitle.innerText = courseInfo.title
 
         let courseTimeDetails = $.createElement('div')
-        courseTimeDetails.className = 'course__time-details'
+        courseTimeDetails.className = 'course__time-details align-items-center'
         courseTimeDetails.insertAdjacentHTML( 'afterbegin' , '<svg class="course__time-icon" width="16" viewBox="0 0 35.517 35.517"><path d="M17.305,0h.905a17.716,17.716,0,0,1,6.854,1.577A17.8,17.8,0,0,1,35.517,17.245v.963A17.815,17.815,0,0,1,21.5,35.118a18.726,18.726,0,0,1-3.289.4h-.9A17.8,17.8,0,0,1,0,18.213v-.965A18.139,18.139,0,0,1,.862,12.29,17.827,17.827,0,0,1,17.305,0m-.427,2.395A15.387,15.387,0,1,0,24.09,3.733,15.366,15.366,0,0,0,16.878,2.395Z" fill="#7e57c2"></path><path d="M238.929,103.557a1.182,1.182,0,0,1,2.363,0c.006,2.979,0,5.959,0,8.938q2.736,2.193,5.475,4.383a1.182,1.182,0,0,1-1.456,1.861c-1.9-1.514-3.8-3.038-5.7-4.554a1.355,1.355,0,0,1-.691-1.12Q238.926,108.309,238.929,103.557Z" transform="translate(-222.352 -95.301)" fill="#7e57c2"></path></svg>')
 
         let courseDuration = $.createElement('span')
@@ -140,7 +168,7 @@ function addCoursesToDom(){
         creatLoadingCircle(loading)
 
         let courseStudents = $.createElement('div')
-        courseStudents.className = 'course__students'
+        courseStudents.className = 'course__students align-items-center'
         courseStudents.insertAdjacentHTML( 'afterbegin' , '<svg class="course__student-svg" width="20" viewBox="0 0 24.802 21.788"><g transform="translate(0 -31.21)"><path d="M12.082,31.27a.945.945,0,0,1,.743.036q5.732,2.146,11.465,4.285a.764.764,0,0,1,.512.667v.052a.764.764,0,0,1-.515.672q-1.944.73-3.891,1.453-.006,2.439,0,4.878a2.381,2.381,0,0,1-.19,1.062,3.382,3.382,0,0,1-1.341,1.381,10.239,10.239,0,0,1-3.546,1.2,18.542,18.542,0,0,1-5.2.093,11.006,11.006,0,0,1-4.147-1.27,3.348,3.348,0,0,1-1.4-1.459,2.218,2.218,0,0,1-.162-.863c0-1.673,0-3.345,0-5.018-.985-.364-1.968-.735-2.952-1.1q0,5.167,0,10.334a1.805,1.805,0,0,0,.141.545c.426,1.287.861,2.57,1.282,3.859a.728.728,0,0,1-.644.922.761.761,0,0,1-.782-.615.754.754,0,0,1-.773.614A.735.735,0,0,1,0,52.305V36.262A.79.79,0,0,1,.194,35.8a1.339,1.339,0,0,1,.564-.3q5.663-2.112,11.324-4.227M4.77,35.547a4.307,4.307,0,0,0,.461.012h6.882a1.267,1.267,0,0,1,.626.087.724.724,0,0,1-.336,1.365c-2.471,0-4.943,0-7.414,0-.075,0-.15.006-.225.012,2.549.938,5.09,1.9,7.636,2.846q4.767-1.782,9.535-3.563c0-.011,0-.032,0-.043Q17.171,34.48,12.4,32.7c-2.544.948-5.085,1.9-7.631,2.846m1.092,3.432q0,2.141,0,4.281a1.113,1.113,0,0,0,.077.555,2.018,2.018,0,0,0,.7.667,7.063,7.063,0,0,0,1.88.776,14.553,14.553,0,0,0,3.3.464,14.91,14.91,0,0,0,4.921-.6,5.594,5.594,0,0,0,1.718-.849,1.058,1.058,0,0,0,.481-.766q0-2.263,0-4.526L12.723,41.3a.873.873,0,0,1-.643,0Q8.97,40.142,5.862,38.979Z" fill="#5e81d1"></path></g></svg>')
 
         let courseNumberOfStudents = $.createElement('span')
@@ -243,6 +271,23 @@ function prevSlide(){
     setAnimation(currentExplanation , nextExplanation)
 }
 
+function showStudentInfos(index , event){
+    studentUsername.innerText = studentsInfos[index].username
+    studentCareer.innerText = studentsInfos[index].career
+    studentComment.innerText = studentsInfos[index].comment
+    setAnimationForVideo(index , event)
+}
+
+function setAnimationForVideo(index , event){
+    currentVideo.src = videoStudents[index]
+    currentVideoParent.style.animation = 'currentVideo .4s ease-in-out'
+    currentVideoParent.onanimationend = () => currentVideoParent.style.animation = ''
+    if(event.target === nextVideoBtn || event.target === nextVideoBtn.firstElementChild) nextVideo.src = videoStudents[index + 1]
+    else if(event.target === prevVideoBtn || event.target === prevVideoBtn.firstElementChild) nextVideo.src = videoStudents[index - 1]
+    nextVideoParent.style.animation = 'nextVideo .4s ease-in-out'
+    nextVideoParent.onanimationend = () => nextVideoParent.style.animation = ''
+}
+
 ////events////
 
 menuHamburger.addEventListener('click' , headerHandler)
@@ -253,4 +298,14 @@ footerLogo.addEventListener('click' , goUpFromFooter)
 window.addEventListener('load' , loadingFadeHandler)
 nextBtnAboutMe.addEventListener('click' , nextSlide)
 prevBtnAboutMe.addEventListener('click' , prevSlide)
+nextVideoBtn.addEventListener('click' , event =>{
+    studentIndex++
+    if(studentIndex > studentsInfos.length - 1) studentIndex = 0
+    showStudentInfos(studentIndex , event)
+})
+prevVideoBtn.addEventListener('click' , event =>{
+    studentIndex--
+    if(studentIndex < 0) studentIndex = studentsInfos.length - 1
+    showStudentInfos(studentIndex , event)
+})
 window.addEventListener('resize' , changeInstaCaptionText)
