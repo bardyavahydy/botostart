@@ -1498,27 +1498,6 @@ body{
         flex-grow: 1;
     }
 
-    .total-container-footer , .container-student-informations{
-        flex-direction: column;
-    }
-
-    .total-container-footer > div{
-        width: 100%;
-    }
-
-    .footer__container:nth-child(1){
-        padding-left: 0;
-        margin-bottom: 4rem;
-    }
-    
-    .footer__container:nth-child(2){
-        padding-right: 0;
-    }
-
-    .communications-ways{
-        margin-top: 4rem;
-    }
-
     .instagram__caption{
         font-size: 2.2rem;
         padding: 0 1.6rem;
@@ -1539,6 +1518,27 @@ body{
     .student-videos {
         height: 38.6rem;
         margin-top: 5rem;
+    }
+
+    .total-container-footer , .container-student-informations{
+        flex-direction: column;
+    }
+
+    .total-container-footer > div{
+        width: 100%;
+    }
+
+    .footer__container:nth-child(1){
+        padding-left: 0;
+        margin-bottom: 4rem;
+    }
+    
+    .footer__container:nth-child(2){
+        padding-right: 0;
+    }
+
+    .communications-ways{
+        margin-top: 4rem;
     }
 }
 
@@ -1681,23 +1681,6 @@ body{
         font-size: 3.5rem;
     }
 
-    .footer-details__container{
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .footer-details__texts{
-        margin-top: 1.6rem;
-    }
-
-    .footer__container:nth-child(2) > * {
-        width: 100%;
-    }
-
-    .sections-of-the-site{
-        margin-bottom: 4rem;
-    }
-
     .instagram__caption{
         font-size: 2rem;
         text-align: center;
@@ -1720,6 +1703,23 @@ body{
     .video-parent{
         max-width: 40rem;
     }
+
+    .footer-details__container{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-details__texts{
+        margin-top: 1.6rem;
+    }
+
+    .footer__container:nth-child(2) > * {
+        width: 100%;
+    }
+
+    .sections-of-the-site{
+        margin-bottom: 4rem;
+    }
 }
 
 @media (max-width: 490px){
@@ -1732,6 +1732,10 @@ body{
 @media (max-width: 420px){
     .common-style-link {
         padding: 1rem;
+    }
+
+    .nav__shopping-cart {
+        padding: 1.06rem 0.5rem;
     }
 
     .section-head__title {
