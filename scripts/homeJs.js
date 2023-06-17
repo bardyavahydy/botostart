@@ -23,7 +23,6 @@ const nextVideo = $.querySelector('.next-video')
 const nextVideoParent = $.querySelector('.next-video-parent')
 const currentVideo = $.querySelector('.current-video')
 const currentVideoParent = $.querySelector('.current-video-parent')
-
 const instaCaption = $.querySelector('.instagram__caption')
 const footerLogo = $.querySelector('.footer-logo')
 const coursesFragment = $.createDocumentFragment()
@@ -228,10 +227,6 @@ function changeDisplay(elements){
     })
 }
 
-function goUpFromFooter(){
-    window.scrollTo(0 , 0)
-}
-
 function changeInstaCaptionText(){
     if(window.innerWidth < 576){
         instaCaption.innerHTML = 'در <a href="https://www.instagram.com/javascript.front/" class="instagram__link">اینستاگرام</a> همراهمون باشید</p>'
@@ -288,13 +283,16 @@ function setAnimationForVideo(index , event){
     nextVideoParent.onanimationend = () => nextVideoParent.style.animation = ''
 }
 
+function goUpFromFooter(){
+    window.scrollTo(0 , 0)
+}
+
 ////events////
 
 menuHamburger.addEventListener('click' , headerHandler)
 menuCrossIcon.addEventListener('click' , removeActiveClassFromHeader)
 totalContainerMenu.addEventListener('click' , event => (event.target === totalContainerMenu) ? removeActiveClassFromHeader() : null
 )
-footerLogo.addEventListener('click' , goUpFromFooter)
 window.addEventListener('load' , loadingFadeHandler)
 nextBtnAboutMe.addEventListener('click' , nextSlide)
 prevBtnAboutMe.addEventListener('click' , prevSlide)
@@ -309,3 +307,4 @@ prevVideoBtn.addEventListener('click' , event =>{
     showStudentInfos(studentIndex , event)
 })
 window.addEventListener('resize' , changeInstaCaptionText)
+footerLogo.addEventListener('click' , goUpFromFooter)
