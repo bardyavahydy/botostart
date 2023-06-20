@@ -17,6 +17,10 @@ const loading = $.querySelector('.loading')
 const basicInfoPrice = $.querySelector('.basic-info__price')
 const containerMoreDetailsAboutTheCourse = $.querySelector('.container-more-details-about-the-course')
 const readMoreBtn = $.querySelector('.total-container-more-details-about-the-course__btn')
+const teacherPic = $.querySelector('.container-about-teacher__img')
+const teacherName = $.querySelector('.container-about-teacher__name')
+const teacherCareer = $.querySelector('.container-about-teacher__career')
+const teacherdesc = $.querySelector('.container-about-teacher__descriptin')
 const footerLogo = $.querySelector('.footer-logo')
 const persian = new Intl.NumberFormat('fa')
 
@@ -55,6 +59,12 @@ let productsInfo = {
                   desc:'یکی از موضوعات بسیار مهم در بوتواستارت پشتیبانی دوره‌ها می‌باشد که برعهده مدرس دوره (عرفان یوسفی) است. مدرس به عنوان یک منتور و همراه از ابتدای مسیر قدم به قدم، تا زمانی که دانشجو تمامی مطالب را بصورت کامل یاد بگیرد، همراه اوست تا در تمامی روزهای هفته، حتی روزهای تعطیل به سوالات دانشجویان پاسخ دهد. این ارتباط مستقیم از طریق اکانت های واتس‌اپ - تلگرام و اینستاگرام انجام می‌گیرد.' 
                 },
             ],
+        },
+        aboutTeacher:{
+            src:'../images/erfan.png',
+            name:'عرفان یوسفی',
+            career:'برنامه نویس بک اند',
+            description:'سلام من عرفانم و از سال ۸۹‌ برنامه نویسی رو شروع کردم و با زبان های متخلفی کار کردم ولی از سال ۹۷ به صورت تخصصی روی جاوااسکریپت و Node.Js مشغول به کار شدم و در پروژه های مختلفی شرکت داشتم. من همچنین علاقه زیادی به تدریس داشتم و دوست دارم تجربه‌ای که توی این چند سال به دست آوردم رو در قالب دوره های کامل و پروژه محور منتشر کنم تا مشکلاتی که زمانی برای من مانع بودند را از سر راه شما بردارم'
         }
     },
     JavaScript:{ 
@@ -98,6 +108,12 @@ let productsInfo = {
                   desc:'اشتباه ترین کار ممکن این است که قبل از یادگیری جاوااسکریپت سراغ تکنولوژی هایی مانند ریکت بروید. این ها فریم ورک ها و لایببری های جاوااسکریپت هستند و نیازه تا قبل از شروع هر کدام حتما جاوااسکریپت را به خوبی یاد بگیرید' 
                 },
             ],
+        },
+        aboutTeacher:{
+            src:'../images/milad.png',
+            name:'میلاد عظمی',
+            career:'برنامه نویس فرانت اند',
+            description:'سلام بچه ها👋 من میلادم و از سال ۹۵ مشغول برنامه نویسی فرانت اند و ریکت هستم و همچنین در سال ۹۸ وارد حوزه آموزش نیز شدم و چندین دوره در سایت های بزرگ ایرانی منتشر کردم و در نهایت تصمیم به تدریس در پلتفرم اختصاصی خودم ینی بوتواستارت گرفتم. تمام تلاشم اینه تا دوره هایی رو بهتون ارایه بدم که علاوه بر مباحث مهم حاوی پروژه و تجربه باشه تا مسیر ورود شما به بازار کار رو راحتتر کنم'
         }
     }
 }
@@ -135,6 +151,7 @@ function setInfoPage(){
             setTitlePage(productsInfo[productsInfoKey].titlePage)
             setBasicInfo(productsInfo[productsInfoKey].basicInfo)
             setMoreDetails(productsInfo[productsInfoKey].moreDetails.details)
+            aboutTeacherHandler(productsInfo[productsInfoKey].aboutTeacher)
         }
     } )
 }
@@ -171,7 +188,7 @@ function setMoreDetails(details){
         explanationAboutTheCourseWrapper.insertAdjacentHTML('afterbegin' , '<svg class="explanation-about-the-course__svg" width="20" viewBox="0 0 57 76"><defs><filter id="a" x="20" y="0" width="34" height="34" filterUnits="userSpaceOnUse"><feOffset dy="3" input="SourceAlpha"></feOffset><feGaussianBlur stdDeviation="3" result="b"></feGaussianBlur><feFlood flood-opacity="0.161"></feFlood><feComposite operator="in" in2="b"></feComposite><feComposite in="SourceGraphic"></feComposite></filter><filter id="c" x="24" y="30" width="27" height="27" filterUnits="userSpaceOnUse"><feOffset dy="3" input="SourceAlpha"></feOffset><feGaussianBlur stdDeviation="3" result="d"></feGaussianBlur><feFlood floodpacity="0.161"></feFlood><feComposite operator="in" in2="d"></feComposite><feComposite in="SourceGraphic"></feComposite></filter><filter id="e" x="0" y="48" width="28" height="28" filterUnits="userSpaceOnUse"><feOffset dy="3" input="SourceAlpha"></feOffset><feGaussianBlur stdDeviation="3" result="f"></feGaussianBlur><feFlood flood-opacity="0.161"></feFlood><feComposite operator="in" in2="f"></feComposite><feComposite in="SourceGraphic"></feComposite></filter><filter id="g" x="33" y="50" width="24" height="24" filterUnits="userSpaceOnUse"><feOffset dy="3" input="SourceAlpha"></feOffset><feGaussianBlur stdDeviation="3" result="h"></feGaussianBlur><feFlood flood-opacity="0.161"></feFlood><feComposite operator="in" in2="h"></feComposite><feComposite in="SourceGraphic"></feComposite></filter></defs><g transform="translate(-1717 -1141)"><g transform="matrix(1, 0, 0, 1, 1717, 1141)" filter="url(#a)"><rect width="16" height="16" rx="5" transform="translate(29 6)" fill="#343434" opacity="0.84"></rect></g><g transform="matrix(1, 0, 0, 1, 1717, 1141)" filter="url(#c)"><rect width="9" height="9" rx="3" transform="translate(33 36)" fill="#343434" opacity="0.7"></rect></g><g transform="matrix(1, 0, 0, 1, 1717, 1141)" filter="url(#e)"><rect width="10" height="10" rx="3" transform="translate(9 54)" fill="#343434" opacity="0.69"></rect></g><g transform="matrix(1, 0, 0, 1, 1717, 1141)" filter="url(#g)"><rect width="6" height="6" rx="2" transform="translate(42 56)" fill="#343434" opacity="0.39"></rect></g></g></svg>')
 
         let explanationAboutTheCourseTitle = $.createElement('h2')
-        explanationAboutTheCourseTitle.classList.add('explanation-about-the-course__title')
+        explanationAboutTheCourseTitle.classList.add('explanation-about-the-course__title' , 'title')
         explanationAboutTheCourseTitle.innerText = detail.title
 
         if(Array.isArray(detail.desc)) creatUlForExplanationAboutTheCourse(detail.desc , explanationAboutTheCourse , explanationAboutTheCourseWrapper)
@@ -230,6 +247,13 @@ function creatCircleForReadMoreBtn(event){
     circle.style.animation = 'circleBtn .1s linear'
     readMoreBtn.appendChild(circle)
     circle.onanimationend = () => circle.remove()
+}
+
+function aboutTeacherHandler(aboutTeacher){
+    teacherPic.src = aboutTeacher.src
+    teacherName.innerText = aboutTeacher.name
+    teacherCareer.innerText = aboutTeacher.career
+    teacherdesc.innerText = aboutTeacher.description
 }
 
 function goUpFromFooter(){
