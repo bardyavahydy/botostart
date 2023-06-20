@@ -15,6 +15,8 @@ const basicInfoStudents = $.querySelector('.basic-info__students')
 const basicInfoCaptionNone = $.querySelector('.basic-info__caption--none')
 const loading = $.querySelector('.loading')
 const basicInfoPrice = $.querySelector('.basic-info__price')
+const containerMoreDetailsAboutTheCourse = $.querySelector('.container-more-details-about-the-course')
+const readMoreBtn = $.querySelector('.total-container-more-details-about-the-course__btn')
 const footerLogo = $.querySelector('.footer-logo')
 const persian = new Intl.NumberFormat('fa')
 
@@ -31,6 +33,29 @@ let productsInfo = {
             numberOfStudents:'۴۱۶',
             price:1989000
         },
+        moreDetails:{
+            details:[
+                { title:'زبان برنامه نویسی TypeScript چیست؟' , 
+                  desc:'با استفاده از TypeScript می توان کدها را به روش ساده تری نوشت و با کامپایل کردن آن ها خروجی استاندارد کد جاوا اسکریپت را به دست آورد. تایپ اسکریپت توسعه ی پروژه های جاوا اسکریپت را تا حد زیادی آسان می کند. مزایای TypeScript زمانی برای شما مشخص می شود که در پروژه ای بزرگ نیاز به استفاده از جاوا اسکریپت داشته باشید. TypeScript یک زبان برنامه نویسی است که توسط شرکت بزرگ Microsoft توسعه یافته و اکنون در بسیاری از پروژه‌ها با ابعاد و مقیاس بالا مورد استفاده قرار می گیرد و هم چنین با هر مرورگر و سیستم عاملی سازگار است. این زبان در اصل یک ابر مجموعه یا همان superset از زبان جاوا اسکریپت است؛ یعنی تمامی قابلیت‌ها و ابزارهای جاوا اسکریپت در آن دیده شده و علاوه بر آن قابلیت‌های بیشتری نیز دارد. ما از تایپ اسکریپت می توانیم در فریم ورک های Angular ، Vue.js ، React.js ، Express.js و Node.js بجای جاوا اسکریپت استفاده کنیم . هدف آن آسان شدن کد نویسی با استفاده از ویژگی های زبان های شی گرا با کم ترین میزان خطا برای برنامه های Back End و Front End می باشد. سینتکس تایپ اسکریپت شباهت زیادی به جاوا اسکریپت دارد و حتی می توانید با تغییر پسوند کدهای جاوا اسکریپت به TS از آن ها به عنوان کدهای تایپ اسکریپت استفاده نمایید.هدر این زبان برای ماژول های پایه Node.js در دسترس بوده و با استفاده از آن می توانید برنامه های نود جی اس را در تایپ اسکریپت توسعه دهید. TypeScript با کتابخانه های پرطرفدار جاوا اسکریپت نظیر ReactJS و jQuery کاملا سازگار بوده و خروجی آن با انواع مرورگرها سازگاری دارد. تایپ اسکریپت برای توسعه برنامه های AngularJS 2 مناسب بوده و در واقع برای نوشتن کدهای جاوا اسکریپت در انگولار باید از کدهای زبان TypeScript استفاده شود.' 
+                },
+
+                { title:'ویژگی های TypeScript' , 
+                  desc:'زبان برنامه نویسی TypeScript نمونه ی حرفه ای از جاوا اسکریپت بوده و به صورت JS ساده کامپایل می شود. با استفاده از آن به راحتی می توانید کدهای خود را خطایابی کرده و آن ها را رفع کنید. شناسایی خطاها قبل از اجرای کد باعث شده تا فرآیند خطایابی در زمان کوتاه تری صورت پذیرد؛ همین امر یکی از دلایل محبوبیت TypeScript است. در واقع این زبان مدیریت کدها را آسان تر می کند و به شما اجازه می دهد کدهای تمیزتری بنویسید. زبان برنامه نویسی تایپ اسکریپت در هر محیطی که جاوا اسکریپت ران می شود قابلیت اجرا دارد و نیازی به VM اختصاصی برای اجرا ندارد. یکی دیگر از ویژگی های این زبان آن است که از Static Typing پشتیبانی می کند؛ یعنی کامپایلر بین انواع داده ها تمایز قایل شده و باعث می شود تا برنامه ای خواناتر داشته باشیم.' 
+                },
+
+                { title:'بازار کار تایپ اسکریپت' , 
+                  desc:'زبان برنامه نویسی تایپ اسکریپت یکی از بهترین انتخاب‌ها برای برنامه نویسی در مقیاس بزرگ‌تر است. زیرا این زبان از بسیاری از خطاهایی که در حین اجرای برنامه رخ می‌دهد جلوگیری می‌کند. همچنین نگهداری و توسعه کدها را خیلی راحت‌تر کرده است. زمانی که در یک شرکت چندین نفر روی یک پروژه فعالیت می‌کنند سرعت و هماهنگی نقش بسیار مهمی دارد که تایپ اسکریپت همه این‌ موارد را فراهم می‌ کند و همچنین افراد متخصص در تایپ اسکریپت میتوانند در شرکت‌های بزرگ مشغول به کار شوند. مزیت دیگری که برای متخصصان این حوزه وجود دارد این است که می‌توانند به بصورت دورکاری با شرکت‌های بسیار خوب و معتبر داخلی یا خارجی نیز همکاری داشته باشند و اکثر شرکت های داخلی و خارجی یکی از مهارت های اصلی و پایه ی آنها برای استخدام تسلط به تایپ اسکریپت میباشد' 
+                },
+
+                { title:'پیش نیاز دوره ی تایپ اسکریپت' , 
+                  desc:'پیشنیاز این دوره تسلط متوسط بر زبان جاوا اسکریپت می باشد که مشکلی در روند آموزشی شما عزیزان پیش نیاید' 
+                },
+
+                { title:'پشتیبانی دوره' , 
+                  desc:'یکی از موضوعات بسیار مهم در بوتواستارت پشتیبانی دوره‌ها می‌باشد که برعهده مدرس دوره (عرفان یوسفی) است. مدرس به عنوان یک منتور و همراه از ابتدای مسیر قدم به قدم، تا زمانی که دانشجو تمامی مطالب را بصورت کامل یاد بگیرد، همراه اوست تا در تمامی روزهای هفته، حتی روزهای تعطیل به سوالات دانشجویان پاسخ دهد. این ارتباط مستقیم از طریق اکانت های واتس‌اپ - تلگرام و اینستاگرام انجام می‌گیرد.' 
+                },
+            ],
+        }
     },
     JavaScript:{ 
         titlePage:'آموزش مقدماتی تا پیشرفته جاوااسکریپت | دوره پروژه محور Javascript | بوتواستارت' ,
@@ -44,10 +69,41 @@ let productsInfo = {
             numberOfStudents:'۳۷۰۰',
             price:1729000
         },
+        moreDetails:{
+            details:[
+                { title:'چرا برنامه نویسی؟' , 
+                  desc:'توی شرایط اقتصادی فعلی که همه ما درگیر آن هستیم داشتن شغل مناسب با درآمد کافی بسیار مهم است، شغلی که هم شان اجتماعی داشته باشد و هم روش های مختلفی را برای درآمد در اختیار شما بگذارد. بر کسی پوشیده نیست که برنامه نویسی یکی پرتقاضا ترین مهارت ها هم در داخل کشور و هم در خارج از کشور است چرا که در تمام صنعت ها مورد استفاده قرار میگیرد و مهارتی است که روز به روز بیشتر مورد توجه قرار میگیرد و تقاضا برای آن بیشتر میشود. اما برای کار در این حرفه پردرآمد نیاز به مهارت های بالا و به روز دارید تا بتوانید در فضای رقابتی امروز از بقیه پیشی بگیرید و به عنوان یک برنامه نویس سینیور در شرکت ها و استارتاپ های برزرگ مشغول به کار شوید.' 
+                },
+
+                { title:'در این دوره چه آموزش داده می شود؟' , 
+                  desc:'بدون شک جاوااسکریپت یکی از پرطرفدار ترین و کاربردی ترین زبان های دنیاست که در زمینه های مختلفی از جمله طراحی وب (فرانت اند و بک اند)، اپلیکیشن های موبایل، بازی و… کاربرد دارد. با این اوصاف میتوان به قدرت و محبوبیت و بازار کار جاوااسکریپت پی برد. هدف این پروژه آموزش پروژه محور جاوااسکریپت است، به صورتی که 7 پروژه مفید و کاربردی و چندین تمرین در طول این دوره ۲۵ ساعته حل و تشریح خواهد شد. تمام تلاشم را کرده ام که دوره ای کامل و جامع منتشر کنیم تا نیاز به دوره ی دیگری نداشته باشید و زمانتان که با ارزش ترین داراییتان است بیهوده تلف نشود و در کمترین زمان ممکن به درک خوبی از جاوااسکریپت برسید.' 
+                },
+
+                { title:'یادگیری یک زبان برنامه نویسی سخت است؟' , 
+                  desc:'قطعا هر کاری سختی های خودش را دارد اما چیزی که در یادگیری یک زبان برنامه نویسی مهم است درک مفاهیم و تمرین میباشد. در این دوره سعی کردم تا با ساده ترین زبان ممکن مفاهیم را توضیح دهم و در مرحله بعد داخل پروژه ها آن هارا به کار میبریم تا دید بهتری پیدا کنید. هدف این دوره آسان کردن یادگیری جاوااسکریپت است.' 
+                },
+
+                { title:'مزیت های این دوره؟' , 
+                  desc:[
+                   'این دوره پشتیبانی دائمی دارد و همیشه پاسخگوی سوالات دانشجویان خواهیم بود.' ,
+                   'با آپدیت های جدید برنامه ها این دوره نیز آپدیت میشود و به صورت رایگان در اختیار دانشجویان دوره قرار خواهد گرفت.' ,
+                   'پذیرای انتقادات و پیشنهادات شما هستیم و همیشه سعی در ارتقای دوره ها خواهیم داشت.' ,
+                   'در صورت نیاز و تقاضای دانشجویان قسمت های جدید شامل تمرین و پروژه به دوره اضافه خواهد شد.' ,
+                   'برای کسانی که اول راه برنامه نویسی هستند مشاوره رایگان در نظر گرفته شده است(پس در حین ثبت نام شماره تماس درست را وارد کنید تا از آن طریق در ارتباط باشیم).' ,
+                   'و …' 
+                ] 
+                },
+
+                { title:'با وجود ریکت، ویو و انگولار؛ یادگیری جاوااسکریپت ضروری است؟' , 
+                  desc:'اشتباه ترین کار ممکن این است که قبل از یادگیری جاوااسکریپت سراغ تکنولوژی هایی مانند ریکت بروید. این ها فریم ورک ها و لایببری های جاوااسکریپت هستند و نیازه تا قبل از شروع هر کدام حتما جاوااسکریپت را به خوبی یاد بگیرید' 
+                },
+            ],
+        }
     }
 }
-let productsInfoKeys = Object.keys(productsInfo)
 
+let productsInfoKeys = Object.keys(productsInfo)
+let moreDetailsFragment = $.createDocumentFragment()
 let locatiocSreachPharams = new URLSearchParams(location.search)
 let coursePharam = locatiocSreachPharams.get('course')
 
@@ -78,6 +134,7 @@ function setInfoPage(){
         if(coursePharam === productsInfoKey){
             setTitlePage(productsInfo[productsInfoKey].titlePage)
             setBasicInfo(productsInfo[productsInfoKey].basicInfo)
+            setMoreDetails(productsInfo[productsInfoKey].moreDetails.details)
         }
     } )
 }
@@ -104,6 +161,77 @@ function loadingHandler(){
     loading.style.display = 'none'
 }
 
+function setMoreDetails(details){
+    details.forEach( detail =>{
+        let explanationAboutTheCourse = $.createElement('div')
+        explanationAboutTheCourse.classList.add('explanation-about-the-course')
+
+        let explanationAboutTheCourseWrapper = $.createElement('div')
+        explanationAboutTheCourseWrapper.classList.add('explanation-about-the-course__wrapper' , 'align-items-center')
+        explanationAboutTheCourseWrapper.insertAdjacentHTML('afterbegin' , '<svg class="explanation-about-the-course__svg" width="20" viewBox="0 0 57 76"><defs><filter id="a" x="20" y="0" width="34" height="34" filterUnits="userSpaceOnUse"><feOffset dy="3" input="SourceAlpha"></feOffset><feGaussianBlur stdDeviation="3" result="b"></feGaussianBlur><feFlood flood-opacity="0.161"></feFlood><feComposite operator="in" in2="b"></feComposite><feComposite in="SourceGraphic"></feComposite></filter><filter id="c" x="24" y="30" width="27" height="27" filterUnits="userSpaceOnUse"><feOffset dy="3" input="SourceAlpha"></feOffset><feGaussianBlur stdDeviation="3" result="d"></feGaussianBlur><feFlood floodpacity="0.161"></feFlood><feComposite operator="in" in2="d"></feComposite><feComposite in="SourceGraphic"></feComposite></filter><filter id="e" x="0" y="48" width="28" height="28" filterUnits="userSpaceOnUse"><feOffset dy="3" input="SourceAlpha"></feOffset><feGaussianBlur stdDeviation="3" result="f"></feGaussianBlur><feFlood flood-opacity="0.161"></feFlood><feComposite operator="in" in2="f"></feComposite><feComposite in="SourceGraphic"></feComposite></filter><filter id="g" x="33" y="50" width="24" height="24" filterUnits="userSpaceOnUse"><feOffset dy="3" input="SourceAlpha"></feOffset><feGaussianBlur stdDeviation="3" result="h"></feGaussianBlur><feFlood flood-opacity="0.161"></feFlood><feComposite operator="in" in2="h"></feComposite><feComposite in="SourceGraphic"></feComposite></filter></defs><g transform="translate(-1717 -1141)"><g transform="matrix(1, 0, 0, 1, 1717, 1141)" filter="url(#a)"><rect width="16" height="16" rx="5" transform="translate(29 6)" fill="#343434" opacity="0.84"></rect></g><g transform="matrix(1, 0, 0, 1, 1717, 1141)" filter="url(#c)"><rect width="9" height="9" rx="3" transform="translate(33 36)" fill="#343434" opacity="0.7"></rect></g><g transform="matrix(1, 0, 0, 1, 1717, 1141)" filter="url(#e)"><rect width="10" height="10" rx="3" transform="translate(9 54)" fill="#343434" opacity="0.69"></rect></g><g transform="matrix(1, 0, 0, 1, 1717, 1141)" filter="url(#g)"><rect width="6" height="6" rx="2" transform="translate(42 56)" fill="#343434" opacity="0.39"></rect></g></g></svg>')
+
+        let explanationAboutTheCourseTitle = $.createElement('h2')
+        explanationAboutTheCourseTitle.classList.add('explanation-about-the-course__title')
+        explanationAboutTheCourseTitle.innerText = detail.title
+
+        if(Array.isArray(detail.desc)) creatUlForExplanationAboutTheCourse(detail.desc , explanationAboutTheCourse , explanationAboutTheCourseWrapper)
+        else{
+            let explanationAboutTheCourseDescription = $.createElement('p')
+            explanationAboutTheCourseDescription.classList.add('explanation-about-the-course__description')
+            explanationAboutTheCourseDescription.innerText = detail.desc
+            explanationAboutTheCourse.append(explanationAboutTheCourseWrapper , explanationAboutTheCourseDescription)
+        }
+
+        explanationAboutTheCourseWrapper.append(explanationAboutTheCourseTitle)
+        moreDetailsFragment.append(explanationAboutTheCourse)
+    } )
+    containerMoreDetailsAboutTheCourse.append(moreDetailsFragment)
+}
+
+function creatUlForExplanationAboutTheCourse(descriptions , explanationAboutTheCourse , explanationAboutTheCourseWrapper){
+    let explanationAboutTheCourseLists = $.createElement('ul')
+    explanationAboutTheCourseLists.classList.add('explanation-about-the-course-lists')
+    descriptions.forEach(description =>{
+        let explanationAboutTheCourseListsItem = $.createElement('li')
+        explanationAboutTheCourseListsItem.classList.add('explanation-about-the-course-lists__item')
+    
+        let explanationAboutTheCourseListsItemText = $.createElement('span')
+        explanationAboutTheCourseListsItemText.classList.add('explanation-about-the-course-lists__item-text')
+        explanationAboutTheCourseListsItemText.innerText = description
+        explanationAboutTheCourseListsItem.append(explanationAboutTheCourseListsItemText)
+        explanationAboutTheCourseLists.append(explanationAboutTheCourseListsItem)
+    })
+    explanationAboutTheCourse.append(explanationAboutTheCourseWrapper , explanationAboutTheCourseLists)
+}
+
+function readMoreBtnHandler(){
+    if(readMoreBtn.innerText === 'ادامه مطلب'){
+        readMoreBtnChangeSetting('بستن' , '2rem' , `${containerMoreDetailsAboutTheCourse.offsetWidth * .1}rem` , 'none')
+    }else{
+        readMoreBtnChangeSetting('ادامه مطلب' , '0' , '72.5rem' , 'rgba(255, 255, 255, .8)')
+    }
+}
+
+function readMoreBtnChangeSetting(text , marTop , height , background ){
+    setTimeout(() => {
+        readMoreBtn.innerText = text
+        readMoreBtn.style.marginTop = marTop
+        containerMoreDetailsAboutTheCourse.style.height = height
+        containerMoreDetailsAboutTheCourse.firstElementChild.style.background = background
+    }, 150);
+}
+
+function creatCircleForReadMoreBtn(event){
+    let circle = $.createElement('div')
+    let readMoreBtnPosition = readMoreBtn.getBoundingClientRect() 
+    circle.classList.add('circle-read-more-btn')
+    circle.style.left = (event.clientX - readMoreBtnPosition.left - 20) + 'px'
+    circle.style.top = ((event.clientY - readMoreBtnPosition.top - 20)) + 'px'
+    circle.style.animation = 'circleBtn .1s linear'
+    readMoreBtn.appendChild(circle)
+    circle.onanimationend = () => circle.remove()
+}
+
 function goUpFromFooter(){
     window.scrollTo(0 , 0)
 }
@@ -114,5 +242,9 @@ menuHamburger.addEventListener('click' , headerHandler)
 menuCrossIcon.addEventListener('click' , removeActiveClassFromHeader)
 totalContainerMenu.addEventListener('click' , event => (event.target === totalContainerMenu) ? removeActiveClassFromHeader() : null
 )
+readMoreBtn.addEventListener('click' , event =>{
+    readMoreBtnHandler()
+    creatCircleForReadMoreBtn(event)
+})
 window.addEventListener('load' , loadingHandler)
 footerLogo.addEventListener('click' , goUpFromFooter)
