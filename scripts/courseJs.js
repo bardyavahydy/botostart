@@ -17,6 +17,7 @@ const loading = $.querySelector('.loading')
 const basicInfoPrice = $.querySelector('.basic-info__price')
 const containerMoreDetailsAboutTheCourse = $.querySelector('.container-more-details-about-the-course')
 const readMoreBtn = $.querySelector('.total-container-more-details-about-the-course__btn')
+const containerFrequentlyAskedQuestions = $.querySelector('.container-frequently-asked-questions')
 const teacherPic = $.querySelector('.container-about-teacher__img')
 const teacherName = $.querySelector('.container-about-teacher__name')
 const teacherCareer = $.querySelector('.container-about-teacher__career')
@@ -65,6 +66,29 @@ let productsInfo = {
             name:'عرفان یوسفی',
             career:'برنامه نویس بک اند',
             description:'سلام من عرفانم و از سال ۸۹‌ برنامه نویسی رو شروع کردم و با زبان های متخلفی کار کردم ولی از سال ۹۷ به صورت تخصصی روی جاوااسکریپت و Node.Js مشغول به کار شدم و در پروژه های مختلفی شرکت داشتم. من همچنین علاقه زیادی به تدریس داشتم و دوست دارم تجربه‌ای که توی این چند سال به دست آوردم رو در قالب دوره های کامل و پروژه محور منتشر کنم تا مشکلاتی که زمانی برای من مانع بودند را از سر راه شما بردارم'
+        },
+        frequentlyAskedQuestions:{
+            question:[
+                { title:'پیشنیاز دارد؟' ,
+                  answer:'بله، برای شروع این دوره باید جاوااسکریپت را در سطح متوسط بلد باشید..' ,
+                  id:'prerequisite'
+                },
+
+                { title:'اگر در حین دیدن دوره به مشکلی خوردم چکار کنم؟ پشتیبانی دارد؟' ,
+                  answer:'صددرصد، دوره پشتیبانی دایمی دارد. یعنی چه در حین آموزش یا مصاحبه های استخدامی و حتی بعد از استخدام و پروژه گرفتن نیز میتوانید تمام سوال هایتان را بپرسید.' ,
+                  id:'support'
+                },
+
+                { title:'دوره پروژه محور است؟' ,
+                  answer:'به نظر من یک آموزش زمانی منجر به یادگیری و تسلط میشود که با پروژه همراه باشد به همین دلیل هم چندین پروژه مهم و کاربردی داخل دوره کار شده تا کاربرد مفاهیمی که یاد میگیرید را ببینید و درک بهتری حاصل بشود. در این دوره با Node.js و React.js و Vue.js پروژه زده خواهد شد..' ,
+                  id:'project-oriented' 
+                },
+
+                { title:'دوره آپدیت است؟' ,
+                  answer:'بله، دوره کاملا آپدیت است و همچنین مباحثی که مورد نیاز دانشجو ها باشد و یا استفاده ازشون در پروژه ها رو به افزایش باشد نیز به دوره اضافه خواهد شد' ,
+                  id:'update' 
+                }
+            ]
         }
     },
     JavaScript:{ 
@@ -114,12 +138,46 @@ let productsInfo = {
             name:'میلاد عظمی',
             career:'برنامه نویس فرانت اند',
             description:'سلام بچه ها👋 من میلادم و از سال ۹۵ مشغول برنامه نویسی فرانت اند و ریکت هستم و همچنین در سال ۹۸ وارد حوزه آموزش نیز شدم و چندین دوره در سایت های بزرگ ایرانی منتشر کردم و در نهایت تصمیم به تدریس در پلتفرم اختصاصی خودم ینی بوتواستارت گرفتم. تمام تلاشم اینه تا دوره هایی رو بهتون ارایه بدم که علاوه بر مباحث مهم حاوی پروژه و تجربه باشه تا مسیر ورود شما به بازار کار رو راحتتر کنم'
+        },
+        frequentlyAskedQuestions:{
+            question:[
+                { title:'مباحث از صفر گفته شده؟' ,
+                  answer:'بله، در این دوره تمام مباحث و مفاهیم جاوااسکریپت از صفر گفته شده و نیاز به هیچ دانش قبلی راجع به جاوااسکریپت نیست.' ,
+                  id:'from-zero'
+                },
+
+                { title:'پیشنیاز دارد؟' ,
+                  answer:'قبل از شروع این دوره حتما HTML&CSS را در سطح متوسط یاد بگیرید.' ,
+                  id:'support'
+                },
+
+                { title:'اگر در حین دیدن دوره به مشکلی خوردم چکار کنم؟ پشتیبانی دارد؟' ,
+                  answer:'صددرصد، دوره پشتیبانی دایمی دارد. یعنی چه در حین آموزش یا مصاحبه های استخدامی و حتی بعد از استخدام و پروژه گرفتن نیز میتوانید تمام سوال هایتان را بپرسید.' ,
+                  id:'prerequisite'
+                },
+
+                { title:'دوره پروژه محور است؟' ,
+                  answer:'به نظر من یک آموزش زمانی منجر به یادگیری و تسلط میشود که با پروژه همراه باشد به همین دلیل هم چندین پروژه مهم و کاربردی داخل دوره کار شده تا کاربرد مفاهیمی که یاد میگیرید را ببینید و درک بهتری حاصل بشود.',
+                  id:'project-oriented' 
+                },
+
+                { title:'دوره آپدیت است؟' ,
+                  answer:'بله، دوره کاملا آپدیت است و همچنین مباحثی که مورد نیاز دانشجو ها باشد و یا استفاده ازشون در پروژه ها رو به افزایش باشد نیز به دوره اضافه خواهد شد',
+                  id:'update' 
+                },
+
+                { title:'منظور از وبینار های هفتگی چیه؟' ,
+                  answer:'هر هفته برای دانشجو ها وبینار برگزار خواهد شد تا هم به مشکلات جمعی رسیدگی شود و هم انگیزه ای باشد برای ادامه کار.' ,
+                  id:'webinar'
+                }
+            ]
         }
     }
 }
 
 let productsInfoKeys = Object.keys(productsInfo)
 let moreDetailsFragment = $.createDocumentFragment()
+let frequentlyAskedQuestionFragment = $.createDocumentFragment()
 let locatiocSreachPharams = new URLSearchParams(location.search)
 let coursePharam = locatiocSreachPharams.get('course')
 
@@ -148,10 +206,12 @@ function removeActiveClassFromHeader(){
 function setInfoPage(){
     productsInfoKeys.forEach( productsInfoKey =>{
         if(coursePharam === productsInfoKey){
-            setTitlePage(productsInfo[productsInfoKey].titlePage)
-            setBasicInfo(productsInfo[productsInfoKey].basicInfo)
-            setMoreDetails(productsInfo[productsInfoKey].moreDetails.details)
-            aboutTeacherHandler(productsInfo[productsInfoKey].aboutTeacher)
+            let summary = productsInfo[productsInfoKey]
+            setTitlePage(summary.titlePage)
+            setBasicInfo(summary.basicInfo)
+            setMoreDetails(summary.moreDetails.details)
+            aboutTeacherHandler(summary.aboutTeacher)
+            setFrequentlyAskedQuestion(summary.frequentlyAskedQuestions.question)
         }
     } )
 }
@@ -254,6 +314,45 @@ function aboutTeacherHandler(aboutTeacher){
     teacherName.innerText = aboutTeacher.name
     teacherCareer.innerText = aboutTeacher.career
     teacherdesc.innerText = aboutTeacher.description
+}
+
+function setFrequentlyAskedQuestion(questions){
+    questions.forEach( question =>{
+        let frequentlyAskedQuestion = $.createElement('div')
+        frequentlyAskedQuestion.classList.add('frequently-asked-question')
+        frequentlyAskedQuestion.id = question.id
+
+        let frequentlyAskedQuestionWrapper = $.createElement('div')
+        frequentlyAskedQuestionWrapper.classList.add('frequently-asked-question__wrapper' , 'align-items-center')
+        frequentlyAskedQuestionWrapper.addEventListener('click' , () => addActiveToParent(question.id , 'frequently-asked-question--active'))
+
+        frequentlyAskedQuestionWrapper.insertAdjacentHTML('beforeend' , '<svg class="frequently-asked-question__down-direction" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="ExpandMoreIcon"><path d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg>')
+        
+        let frequentlyAskedQuestionTitle = $.createElement('p')
+        frequentlyAskedQuestionTitle.classList.add('frequently-asked-question__title')
+        frequentlyAskedQuestionTitle.innerText = question.title
+
+        let frequentlyAskedQuestionDescription = $.createElement('p')
+        frequentlyAskedQuestionDescription.classList.add('frequently-asked-question__description')
+        frequentlyAskedQuestionDescription.innerText = question.answer
+
+        frequentlyAskedQuestionWrapper.append(frequentlyAskedQuestionTitle)
+        frequentlyAskedQuestion.append(frequentlyAskedQuestionWrapper , frequentlyAskedQuestionDescription)
+        frequentlyAskedQuestionFragment.append(frequentlyAskedQuestion)
+    })
+    containerFrequentlyAskedQuestions.append(frequentlyAskedQuestionFragment)
+}
+
+function addActiveToParent(id , classname){
+    let elmParent = $.getElementById(`${id}`)
+    elmParent.classList.toggle(classname)
+    if(elmParent.classList.contains(classname)){
+        if(window.innerWidth > 420) elmParent.style.height = `${(elmParent.scrollHeight + 16) * .1}rem`
+        else elmParent.style.height = `${elmParent.scrollHeight * .1}rem`
+    }else{
+        if(window.innerWidth > 420) elmParent.style.height = '5.8rem'
+        else elmParent.style.height = '7.3rem'
+    }
 }
 
 function goUpFromFooter(){
