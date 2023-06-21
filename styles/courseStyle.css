@@ -834,7 +834,7 @@ body{
 
 /* section-more-details-about-the-course */
 
-.section-more-details-about-the-course{
+.section-more-details-about-the-course , .section-frequently-asked-questions{
     margin: 12rem 0;
 }
 
@@ -937,10 +937,82 @@ body{
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
 }
+/* section-frequently-asked-questions */
 
+.container-frequently-asked-questions{
+    margin-top: 4rem;
+}
 
+.frequently-asked-question{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    height: 5.8rem;
+    overflow-y: hidden;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    transition: height 150ms ease-in ;
+    -webkit-transition: height 150ms ease-in ;
+    -moz-transition: height 150ms ease-in ;
+    -ms-transition: height 150ms ease-in ;
+    -o-transition: height 150ms ease-in ;
+}
 
+.frequently-asked-question:not(:last-child){
+    margin-bottom: 1.6rem;
+}
 
+.frequently-asked-question__wrapper{
+    cursor: pointer;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    padding: 1.7rem 2rem;
+    transition: 150ms ease-in ;
+    -webkit-transition: 150ms ease-in ;
+    -moz-transition: 150ms ease-in ;
+    -ms-transition: 150ms ease-in ;
+    -o-transition: 150ms ease-in ;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+
+.frequently-asked-question--active .frequently-asked-question__wrapper{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px;
+    padding: 2.5rem 2rem;
+}
+
+.frequently-asked-question__title{
+    font-family: 'YekanBakhBold';
+}
+
+.frequently-asked-question__down-direction{
+    width: 2.4rem;
+    height: 2.4rem;
+    fill: var(--second-text-color);
+    transition: 150ms ease-in-out ;
+    -webkit-transition: 150ms ease-in-out ;
+    -moz-transition: 150ms ease-in-out ;
+    -ms-transition: 150ms ease-in-out ;
+    -o-transition: 150ms ease-in-out ;
+}
+
+.frequently-asked-question--active .frequently-asked-question__down-direction{
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+}
+
+.frequently-asked-question__description{
+    color: var(--second-text-color);
+    font-size: 1.4rem;
+    padding: 2rem;
+}
 
 /* section-about-teacher */
 
@@ -1325,9 +1397,29 @@ body{
     .explanation-about-the-course__description{
         font-size: 1.4rem;
     }
+
+    .frequently-asked-question__title {
+        font-size: 1.3rem;
+    }
+
+    .frequently-asked-question__description {
+        font-size: 1.1rem;
+    }
     
     .container-about-teacher__name{
         font-size: 1.7rem;
+    }
+
+    .sections-of-the-site{
+        margin-bottom: 4rem;
+    }
+
+    .section-more-details-about-the-course , .section-frequently-asked-questions{
+        margin: 8rem 0;
+    }
+
+    .footer {
+        margin-top: 8rem;
     }
 
     .footer-details__container{
@@ -1341,14 +1433,6 @@ body{
 
     .footer__container:nth-child(2) > * {
         width: 100%;
-    }
-
-    .sections-of-the-site{
-        margin-bottom: 4rem;
-    }
-
-    .section-more-details-about-the-course {
-        margin: 8rem 0;
     }
 
 }
@@ -1393,5 +1477,13 @@ body{
 
     .explanation-about-the-course__description{
         font-size: 1.3rem;
+    }
+
+    .frequently-asked-question , .frequently-asked-question__wrapper{
+        height: 7.3rem;
+    }
+
+    .frequently-asked-question__down-direction{
+        margin-right: .5rem;
     }
 }
