@@ -17,6 +17,7 @@ const loading = $.querySelector('.loading')
 const basicInfoPrice = $.querySelector('.basic-info__price')
 const containerMoreDetailsAboutTheCourse = $.querySelector('.container-more-details-about-the-course')
 const readMoreBtn = $.querySelector('.total-container-more-details-about-the-course__btn')
+const containerHeadLines = $.querySelector('.container-head-lines')
 const containerFrequentlyAskedQuestions = $.querySelector('.container-frequently-asked-questions')
 const teacherPic = $.querySelector('.container-about-teacher__img')
 const teacherName = $.querySelector('.container-about-teacher__name')
@@ -88,6 +89,48 @@ let productsInfo = {
                   answer:'بله، دوره کاملا آپدیت است و همچنین مباحثی که مورد نیاز دانشجو ها باشد و یا استفاده ازشون در پروژه ها رو به افزایش باشد نیز به دوره اضافه خواهد شد' ,
                   id:'update' 
                 }
+            ]
+        },
+        HeadLines:{
+            season:[
+                { 
+                  id:'season-one',
+                  unit:'فصل اول: ' ,
+                  title:'آموزش مقدماتی تا پیشرفته ی سینتکس تایپ اسکریپت' ,
+                  part:[
+                    {
+                        name:'تایپ اسکریپت چیست و چرا باید استفاده شود؟',
+                        time:'۱۰ دقیقه',
+                    },
+                    {
+                        name:'نصب تایپ اسکریپت',
+                        time:'۱۴ دقیقه',
+                    },
+                    {
+                        name:'اجرای اولین برنامه با تایپ اسکریپت',
+                        time:'۷ دقیقه',
+                    },
+                    {
+                        name:' متعیر ها و let و const',
+                        time:'۹ دقیقه',
+                    },
+                    {
+                        name:' انواع داده ای string, number, boolean',
+                        time:'۸ دقیقه',
+                    },
+                    {
+                        name:'inference تایپ ها',
+                        time:'۳ دقیقه',
+                    },
+                  ]
+                },
+
+                { 
+                  id:'season-two',
+                  unit:'فصل دوم: ' ,
+                  title:'تایپ اسکریپت در Node JS' ,
+                  part:[]
+                },
             ]
         }
     },
@@ -171,12 +214,50 @@ let productsInfo = {
                   id:'webinar'
                 }
             ]
+        },
+        HeadLines:{
+            season:[
+                {
+                  id:'js',
+                  unit:'' ,
+                  title:'دوره جامع و پروژه محور جاوااسکریپت' ,
+                  part:[
+                    {
+                        name:'مقدمه',
+                        time:'۱۰ دقیقه',
+                        src:'../video/amir-khosroshahi.mov'
+                    },
+                    {
+                        name:'جاوااسکریپت چیست؟',
+                        time:'۱۰ دقیقه',
+                        src:'../video/samira-farokhnezhad.mov'
+                    },
+                    {
+                        name:'اکما چیست؟',
+                        time:'۷ دقیقه',
+                    },
+                    {
+                        name:' نحوه اجرا کدهای جاوا اسکریپت',
+                        time:'۱۷ دقیقه',
+                    },
+                    {
+                        name:'کامنت',
+                        time:'۴ دقیقه',
+                    },
+                    {
+                        name:'متغییر چیست و نحوه تعریف آن',
+                        time:'۱۴ دقیقه',
+                    },
+                  ]
+                }
+            ]
         }
     }
 }
 
 let productsInfoKeys = Object.keys(productsInfo)
 let moreDetailsFragment = $.createDocumentFragment()
+let containerHeadLinesFragment = $.createDocumentFragment()
 let frequentlyAskedQuestionFragment = $.createDocumentFragment()
 let locatiocSreachPharams = new URLSearchParams(location.search)
 let coursePharam = locatiocSreachPharams.get('course')
@@ -209,6 +290,7 @@ function setInfoPage(){
             let summary = productsInfo[productsInfoKey]
             setTitlePage(summary.titlePage)
             setBasicInfo(summary.basicInfo)
+            showSeasons(summary.HeadLines.season)
             setMoreDetails(summary.moreDetails.details)
             aboutTeacherHandler(summary.aboutTeacher)
             setFrequentlyAskedQuestion(summary.frequentlyAskedQuestions.question)
@@ -309,11 +391,102 @@ function creatCircleForReadMoreBtn(event){
     circle.onanimationend = () => circle.remove()
 }
 
-function aboutTeacherHandler(aboutTeacher){
-    teacherPic.src = aboutTeacher.src
-    teacherName.innerText = aboutTeacher.name
-    teacherCareer.innerText = aboutTeacher.career
-    teacherdesc.innerText = aboutTeacher.description
+function showSeasons(seasons){
+    seasons.forEach( (season) =>{
+        let seasonElm = $.createElement('div')
+        seasonElm.id = season.id
+        if(seasons.length > 1) seasonElm.className = 'season'
+        else{
+            seasonElm.className = 'season season--active'
+            seasonElm.style.height = 'fit-content'
+        }
+        
+        let seasonWrapper = $.createElement('div')
+        seasonWrapper.className = 'season__wrapper align-items-center'
+        seasonWrapper.innerHTML = '<p class="season__title"><span class="season__title-span">'+ season.unit +'</span>'+ season.title +'</p><svg class="season__down-direction" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="ExpandMoreIcon"><path d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg>'
+        seasonWrapper.addEventListener('click' ,() => addActiveToParent(season.id , 'season--active'))
+        
+        let seasonParts = $.createElement('div')
+        seasonParts.className = 'season__parts'
+        
+        creatPartDetails(seasonParts , season.part)
+        
+        seasonElm.append(seasonWrapper , seasonParts)
+        containerHeadLinesFragment.append(seasonElm)
+    } )
+    containerHeadLines.append(containerHeadLinesFragment)
+}
+
+function creatPartDetails(seasonParts , parts){
+    parts.forEach( (part,index) =>{
+        let partElm = $.createElement('div')
+        partElm.className = 'part'
+        
+        let partWrapperTop = $.createElement('div')
+        partWrapperTop.className = 'part__wrapper-top align-items-center'
+        
+        let partNumberAndTitle = $.createElement('div')
+        partNumberAndTitle.className = 'part__number-and-title align-items-center'
+        
+        let partNumber = $.createElement('span')
+        partNumber.className = 'part__number center'
+        partNumber.innerText = persian.format(index + 1)
+        
+        let partTitle = $.createElement('p')
+        partTitle.className = 'part__title'
+        partTitle.innerText = part.name
+
+        let partTimeAndSvg = $.createElement('div')
+        partTimeAndSvg.className = 'part__time-and-svg align-items-center'
+        partTimeAndSvg.innerHTML = '<span class="part__time">'+ part.time +'</span><svg class="part__svg" width="15" viewBox="0 0 35.517 35.517"><path d="M17.305,0h.905a17.716,17.716,0,0,1,6.854,1.577A17.8,17.8,0,0,1,35.517,17.245v.963A17.815,17.815,0,0,1,21.5,35.118a18.726,18.726,0,0,1-3.289.4h-.9A17.8,17.8,0,0,1,0,18.213v-.965A18.139,18.139,0,0,1,.862,12.29,17.827,17.827,0,0,1,17.305,0m-.427,2.395A15.387,15.387,0,1,0,24.09,3.733,15.366,15.366,0,0,0,16.878,2.395Z" fill="#7e57c2"></path><path d="M238.929,103.557a1.182,1.182,0,0,1,2.363,0c.006,2.979,0,5.959,0,8.938q2.736,2.193,5.475,4.383a1.182,1.182,0,0,1-1.456,1.861c-1.9-1.514-3.8-3.038-5.7-4.554a1.355,1.355,0,0,1-.691-1.12Q238.926,108.309,238.929,103.557Z" transform="translate(-222.352 -95.301)" fill="#7e57c2"></path></svg>'
+        
+        partNumberAndTitle.append(partNumber , partTitle)
+        partWrapperTop.append(partNumberAndTitle , partTimeAndSvg)
+
+        if(part.src){
+            let partWrapperBottom = $.createElement('div')
+            partWrapperBottom.className = 'part__wrapper-bottom align-items-center'
+
+            let partWatchTheVideo = $.createElement('div')
+            partWatchTheVideo.className = 'part__watch-the-video align-items-center'
+            partWatchTheVideo.innerHTML = '<svg class="part__watch-the-video-svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="SlowMotionVideoRoundedIcon"><path d="M10 8.5v7c0 .41.47.65.8.4l4.67-3.5c.27-.2.27-.6 0-.8L10.8 8.1c-.33-.25-.8-.01-.8.4zm1-5.27c0-.64-.59-1.13-1.21-.99-1.12.26-2.18.7-3.12 1.3-.53.34-.61 1.1-.16 1.55.32.32.83.4 1.21.16.77-.49 1.62-.85 2.54-1.05.44-.1.74-.51.74-.97zM5.1 6.51c-.46-.45-1.21-.38-1.55.16-.6.94-1.04 2-1.3 3.12-.14.62.34 1.21.98 1.21.45 0 .87-.3.96-.74.2-.91.57-1.77 1.05-2.53.26-.39.18-.9-.14-1.22zM3.23 13c-.64 0-1.13.59-.99 1.21.26 1.12.7 2.17 1.3 3.12.34.54 1.1.61 1.55.16.32-.32.4-.83.15-1.21-.49-.76-.85-1.61-1.05-2.53-.09-.45-.5-.75-.96-.75zm3.44 7.45c.95.6 2 1.04 3.12 1.3.62.14 1.21-.35 1.21-.98 0-.45-.3-.87-.74-.96-.91-.2-1.77-.57-2.53-1.05-.39-.24-.89-.17-1.21.16-.46.44-.39 1.19.15 1.53zM22 12c0 4.73-3.3 8.71-7.73 9.74-.62.15-1.22-.34-1.22-.98 0-.46.31-.86.75-.97 3.55-.82 6.2-4 6.2-7.79s-2.65-6.97-6.2-7.79c-.44-.1-.75-.51-.75-.97 0-.64.6-1.13 1.22-.98C18.7 3.29 22 7.27 22 12z"></path></svg><p class="part__watch-the-video-text">تماشای ویدیو</p>'
+            partWatchTheVideo.addEventListener('click' , () => creatVideoPlayerForSampleVideo(part.src))
+
+            let partDl = $.createElement('div')
+            partDl.className = 'part__dl align-items-center'
+            partDl.innerHTML = '<svg class="part__dl-svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CloudDownloadRoundedIcon"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-4.65 4.65c-.2.2-.51.2-.71 0L7 13h3V9h4v4h3z"></path></svg><p class="part__dl-text">دانلود ویدیو</p>'
+
+            partWrapperBottom.append(partWatchTheVideo , partDl)
+            partElm.append(partWrapperTop , partWrapperBottom)
+        }else partElm.append(partWrapperTop)
+        
+        seasonParts.append(partElm)
+    } )
+}
+
+function creatVideoPlayerForSampleVideo(src){
+    body.style.overflowY = 'hidden'
+    let containerVideoPlayer = $.createElement('div')
+    containerVideoPlayer.className = 'container-video-player container-video-player--active center'
+    
+    let videoPlayer = $.createElement('video')
+    videoPlayer.className = 'video-player'
+    videoPlayer.src = src
+    videoPlayer.controls = true
+    containerVideoPlayer.addEventListener('click' , (event) =>{
+        if(event.target === containerVideoPlayer) fadeTeachingSampleVideo(containerVideoPlayer , videoPlayer)
+    })
+
+    videoPlayer.play()
+    containerVideoPlayer.append(videoPlayer)
+    containerHeadLines.append(containerVideoPlayer)
+}
+
+function fadeTeachingSampleVideo(containerVideoPlayer , videoPlayer){
+    body.style.overflowY = 'auto'
+    removeActiveClass(containerVideoPlayer , 'container-video-player--active')
+    videoPlayer.pause()
+    setTimeout(() => containerVideoPlayer.remove() , 255);
 }
 
 function setFrequentlyAskedQuestion(questions){
@@ -355,6 +528,13 @@ function addActiveToParent(id , classname){
     }
 }
 
+function aboutTeacherHandler(aboutTeacher){
+    teacherPic.src = aboutTeacher.src
+    teacherName.innerText = aboutTeacher.name
+    teacherCareer.innerText = aboutTeacher.career
+    teacherdesc.innerText = aboutTeacher.description
+}
+
 function goUpFromFooter(){
     window.scrollTo(0 , 0)
 }
@@ -365,9 +545,9 @@ menuHamburger.addEventListener('click' , headerHandler)
 menuCrossIcon.addEventListener('click' , removeActiveClassFromHeader)
 totalContainerMenu.addEventListener('click' , event => (event.target === totalContainerMenu) ? removeActiveClassFromHeader() : null
 )
+window.addEventListener('load' , loadingHandler)
 readMoreBtn.addEventListener('click' , event =>{
     readMoreBtnHandler()
     creatCircleForReadMoreBtn(event)
 })
-window.addEventListener('load' , loadingHandler)
 footerLogo.addEventListener('click' , goUpFromFooter)
