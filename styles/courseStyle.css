@@ -101,6 +101,7 @@ p{
 }
 
 button{
+    background: transparent;
     cursor: pointer;
     border: none;
     outline: none;
@@ -1169,6 +1170,115 @@ body{
     margin-bottom: 1.2rem;
 }
 
+/* section-students-comments */
+
+.section-students-comments{
+    display: none;
+}
+
+.section-students-comments{
+    margin-top: 12rem;
+}
+
+.section-students-comments__container_title{
+    margin: 0 0 4rem;
+}
+
+.container-student-informations{
+    display: flex;
+}
+
+.student-informations{
+    flex-shrink: 0;
+    width: 32.5%;
+}
+
+.student-informations__profile{
+    background: #dbdbdb;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.student-informations__profile-svg{
+    width: 5.2rem;
+    height: 5.2rem;
+}
+
+.student-informations__about-name{
+    margin-right: 2.4rem;
+}
+
+.student-informations__username{
+    font-family: 'YekanBakhMedium';
+    font-weight: 500;
+}
+
+.student-informations__career{
+    font: 1.4rem 'IRANSansWeb';
+    margin-top: .8rem;
+}
+
+.student-informations__comment{
+    font-weight: 900;
+    margin: 3.2rem 0;
+}
+
+.section-students-comments__btns-and-link{
+    gap: 4rem;
+}
+
+.section-students-comments__svg{
+    margin-right: 1rem;
+}
+
+#next-video-btn {
+    margin-left: 2rem;
+}
+
+.student-videos{
+    position: relative;
+    width: calc(100% - 32.5%);
+}
+
+.video-parent{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    box-shadow: rgba(126, 87, 194, 0.16) 0px 4px 12px;
+    border-radius: 1.5rem;
+    -webkit-border-radius: 1.5rem;
+    -moz-border-radius: 1.5rem;
+    -ms-border-radius: 1.5rem;
+    -o-border-radius: 1.5rem;
+    max-width: 40rem;
+    height: 26.7rem;
+    overflow: hidden;
+}
+
+.video-one{
+    transform: rotateZ(-20deg);
+    -webkit-transform: rotateZ(-20deg);
+    -moz-transform: rotateZ(-20deg);
+    -ms-transform: rotateZ(-20deg);
+    -o-transform: rotateZ(-20deg);
+}
+
+.video-two{
+    transform: rotateZ(-10deg);
+    -webkit-transform: rotateZ(-10deg);
+    -moz-transform: rotateZ(-10deg);
+    -ms-transform: rotateZ(-10deg);
+    -o-transform: rotateZ(-10deg);
+}
+
 /* footer */
 
 .footer{
@@ -1349,8 +1459,64 @@ body{
     }
 }
 
-@media (max-width: 1200px){
+@keyframes nextVideo{
+    0%{
+        transform: translateY(0) rotate(-10deg);
+        -webkit-transform: translateY(0) rotate(-10deg);
+        -moz-transform: translateY(0) rotate(-10deg);
+        -ms-transform: translateY(0) rotate(-10deg);
+        -o-transform: translateY(0) rotate(-10deg);
+}
+    50%{
+        transform: translateY(-120%) rotate(-20deg);
+        -webkit-transform: translateY(-120%) rotate(-20deg);
+        -moz-transform: translateY(-120%) rotate(-20deg);
+        -ms-transform: translateY(-120%) rotate(-20deg);
+        -o-transform: translateY(-120%) rotate(-20deg);
+}
+    100%{
+        transform: translateY(0) rotate(0deg);
+        -webkit-transform: translateY(0) rotate(0deg);
+        -moz-transform: translateY(0) rotate(0deg);
+        -ms-transform: translateY(0) rotate(0deg);
+        -o-transform: translateY(0) rotate(0deg);
+        z-index: 7;
+    }
+}
 
+@keyframes currentVideo{
+    0%{
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+}
+    50%{
+        transform: translateY(15%) rotate(-5deg);
+        -webkit-transform: translateY(15%) rotate(-5deg);
+        -moz-transform: translateY(15%) rotate(-5deg);
+        -ms-transform: translateY(15%) rotate(-5deg);
+        -o-transform: translateY(15%) rotate(-5deg);
+}
+    100%{
+        transform: translateY(0) rotate(-10deg);
+        -webkit-transform: translateY(0) rotate(-10deg);
+        -moz-transform: translateY(0) rotate(-10deg);
+        -ms-transform: translateY(0) rotate(-10deg);
+        -o-transform: translateY(0) rotate(-10deg);
+        z-index: 6;
+}
+}
+
+@media (max-width: 1200px){
+    .student-informations {
+        width: 40.5%;
+    }
+
+    .student-videos{
+        width: calc(100% - 40.5%);
+    } 
 }
 
 @media (max-width: 992px){
@@ -1398,6 +1564,23 @@ body{
 
     .container-about-teacher__cover{
         margin-bottom: 2.4rem;
+    }
+
+    .container-student-informations{
+        flex-direction: column;
+    }
+
+    .student-informations , .student-videos{
+        width: 100%;
+    }
+
+    .section-students-comments__btns-and-link{
+        justify-content: center;
+    }
+
+    .student-videos {
+        height: 38.6rem;
+        margin-top: 5rem;
     }
 
     .total-container-footer{
@@ -1561,6 +1744,14 @@ body{
         margin: 8rem 0;
     }
 
+    .section-students-comments{
+        margin-top: 8rem;
+    }
+
+    .video-parent{
+        max-width: 40rem;
+    }
+
     .footer {
         margin-top: 8rem;
     }
@@ -1578,6 +1769,13 @@ body{
         width: 100%;
     }
 
+}
+
+@media (max-width: 490px){
+    .video-parent{
+        max-width: 33rem;
+        height: 22rem;
+    }
 }
 
 @media (max-width: 420px){
@@ -1633,5 +1831,14 @@ body{
 
     .frequently-asked-question__down-direction , .season__down-direction{
         margin-right: .5rem;
+    }
+
+    .student-videos {
+        height: 24.6rem;
+    }
+
+    .video-parent{
+        max-width: 26rem;
+        height: 17.4rem;
     }
 }
