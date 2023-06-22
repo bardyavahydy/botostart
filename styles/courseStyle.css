@@ -106,6 +106,10 @@ button{
     outline: none;
 }
 
+video{
+    outline: none;
+}
+
 /* grid system */
 
 .container{
@@ -714,7 +718,7 @@ body{
 }
 
 .basic-info__title{
-    font: 2rem 'YekanBakhHeavy';
+    font: 900 2rem 'YekanBakhHeavy';
     margin-bottom: 1.6rem;
 }
 
@@ -881,9 +885,8 @@ body{
     content: '';
     background: var(--main-text-color);
     position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto 0;
+    top: 1rem;
+    right: 0;
     width: .5rem;
     height: .5rem;
     border-radius: 50%;
