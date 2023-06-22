@@ -23,8 +23,20 @@ const teacherPic = $.querySelector('.container-about-teacher__img')
 const teacherName = $.querySelector('.container-about-teacher__name')
 const teacherCareer = $.querySelector('.container-about-teacher__career')
 const teacherdesc = $.querySelector('.container-about-teacher__descriptin')
+const sectionStudentsComments = $.querySelector('.section-students-comments')
+const studentUsername = $.querySelector('.student-informations__username')
+const studentCareer = $.querySelector('.student-informations__career')
+const studentComment = $.querySelector('.student-informations__comment')
+const nextVideoBtn = $.getElementById('next-video-btn')
+const prevVideoBtn = $.getElementById('prev-video-btn')
+const nextVideoParent = $.querySelector('.next-video-parent')
+const nextVideo = $.querySelector('.next-video')
+const currentVideoParent = $.querySelector('.current-video-parent')
+const currentVideo = $.querySelector('.current-video')
 const footerLogo = $.querySelector('.footer-logo')
 const persian = new Intl.NumberFormat('fa')
+let studentsCommentInfoGlobal
+let studentIndex = 0
 
 let productsInfo = {
     backEnd:{
@@ -354,7 +366,27 @@ let productsInfo = {
                       ]
                     }
                 ]
-            }
+            },
+            studentsCommentInfo:[
+                {
+                    username:'محمد عطایی',
+                    career:'دانشجوی جاوااسکریپت و ریکت',
+                    comment:'من از دانشجو های آقای عظمی هستم، از قدرت بیانشون، تدریس رونشون و پشتیبانیشون خیلی راضی هستم.',
+                    src:'../video/samira-farokhnezhad.mov'
+                },
+                {
+                    username:'ابوالفضل اکبرزاده',
+                    career:'دانشجوی HTML&CSS و جاوااسکریپت',
+                    comment:'من تو دوره های بوتواستارت شرکت کردم و این یکی از بهترین انتخاب هایی بود که من تو زمینه برنامه نویسی داشتم چون من تو دوره های دیگه هم شرکت کردم و توی تون دوره ها علاوه بر اینکه مباحث به صورت دقیق توضیح داده نمیشه، پشتیبانی خوبی هم نداشتند اما این دوره همه این نکات رو داره.',
+                    src:'../video/sorena-ganji.mov'
+                },
+                {
+                    username:'امیر علی امانی پور',
+                    career:'دانشجوی جاوااسکریپت',
+                    comment:'من دانشجوی دوره جاوااسکریپت آقای عظمی هستم، خواستم بگم که دوره شون خیلی خوب داره پیش میره و جدای از دوره خوبشون، پشتیبانیشون خیلی خوبه که در اسرع وقت به سوالات پاسخ کامل داده میشه.',
+                    src:'../video/amir-khosroshahi.mov'
+                },
+            ]
         },
         reactJs:{ 
             titlePage:'آموزش ریکت و ریداکس | دوره پروژه محور React JS | بوتواستارت' ,
@@ -469,7 +501,27 @@ let productsInfo = {
                         ]
                       }
                 ]
-            }
+            },
+            studentsCommentInfo:[
+                {
+                    username:'کیان بابان(ساکن کانادا)',
+                    career:'دانشجوی جاوااسکریپت و ریکت',
+                    comment:'من در دوره های HTML&CSS و جاوااسکریپت و ریکت سایت بوتواستارت شرکت کردم و تونستم تو کمتر از چهار ماه بدون هیچ پیشینه‌ای در زمینه فرانت اند به تسلط خوبی برسم.',
+                    src:'../video/amir-khosroshahi.mov'
+                },
+                {
+                    username:'مهدی احسانی',
+                    career:'دانشجوی جاوااسکریپت و ریکت',
+                    comment:'این دوره قطعا یکی از بهترین دوره هایی بود که من تا الان دیده بودم و همه چی داخلش توضیح داده شده و یکی از امکانات خوبی که این دوره داره اینه که پشتیبانی آنلاین داره و میتونیم هر سوالی راجب هر مبحثی رو بپرسیم.',
+                    src:'../video/sorena-ganji.mov'
+                },
+                {
+                    username:'کسری اخوان',
+                    career:'دانشجوی ریکت و گیت',
+                    comment:'ریکت آقا میلاد حرف نداره، صفر تا صد کارو خیلی سلیس و روون توضیح داده. در مورد پشتیبانی هم اینکه هر وقت پیام بدین تو کوتاه ترین زمان ممکن جوابتون رو میده.',
+                    src:'../video/samira-farokhnezhad.mov'
+                },
+            ]
         }
     }
 }
@@ -479,6 +531,26 @@ let containerHeadLinesFragment = $.createDocumentFragment()
 let frequentlyAskedQuestionFragment = $.createDocumentFragment()
 let locatiocSreachPharams = new URLSearchParams(location.search)
 let coursePharam = locatiocSreachPharams.get('course')
+
+for( let clientSideOrClientServer in productsInfo ){
+    let nameOfTheCourses = Object.keys(productsInfo[clientSideOrClientServer])
+    nameOfTheCourses.forEach( nameOfTheCourse =>{
+        if(coursePharam === nameOfTheCourse){
+            let summary = productsInfo[clientSideOrClientServer][nameOfTheCourse]
+            let hasKey = 'studentsCommentInfo' in summary
+            setTitlePage(summary.titlePage)
+            setBasicInfo(summary.basicInfo)
+            setMoreDetails(summary.moreDetails.details)
+            showSeasons(summary.HeadLines.season)
+            setFrequentlyAskedQuestion(productsInfo[clientSideOrClientServer].frequentlyAskedQuestions.question)
+            aboutTeacherHandler(productsInfo[clientSideOrClientServer].aboutTeacher)
+            if(hasKey){
+                sectionStudentsComments.style.display = 'block'
+                studentsCommentInfoGlobal = returnSummaryStudentsCommentInfo(summary.studentsCommentInfo)
+            }
+        }
+    } )
+}
 
 ////add classes////
 
@@ -500,21 +572,6 @@ function headerHandler(){
 function removeActiveClassFromHeader(){
     removeActiveClass(header , 'header-active')
     body.style.overflowY = 'auto'
-}
-
-for( let clientSideOrClientServer in productsInfo ){
-    let nameOfTheCourses = Object.keys(productsInfo[clientSideOrClientServer])
-    nameOfTheCourses.forEach( nameOfTheCourse =>{
-        if(coursePharam === nameOfTheCourse){
-            let summary = productsInfo[clientSideOrClientServer][nameOfTheCourse]
-            setTitlePage(summary.titlePage)
-            setBasicInfo(summary.basicInfo)
-            setMoreDetails(summary.moreDetails.details)
-            showSeasons(summary.HeadLines.season)
-            setFrequentlyAskedQuestion(productsInfo[clientSideOrClientServer].frequentlyAskedQuestions.question)
-            aboutTeacherHandler(productsInfo[clientSideOrClientServer].aboutTeacher)
-        }
-    } )
 }
 
 function setTitlePage(titlePage){
@@ -612,17 +669,13 @@ function showSeasons(seasons){
     seasons.forEach( (season) =>{
         let seasonElm = $.createElement('div')
         seasonElm.id = season.id
-        if(seasons.length > 1) seasonElm.className = 'season'
-        else{
-            seasonElm.className = 'season season--active'
-            seasonElm.style.height = 'fit-content'
-        }
+        seasonElm.className = 'season'
         
         let seasonWrapper = $.createElement('div')
         seasonWrapper.className = 'season__wrapper align-items-center'
         seasonWrapper.innerHTML = '<p class="season__title"><span class="season__title-span">'+ season.unit +'</span>'+ season.title +'</p><svg class="season__down-direction" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="ExpandMoreIcon"><path d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg>'
         seasonWrapper.addEventListener('click' ,() => addActiveToParent(season.id , 'season--active'))
-        
+
         let seasonParts = $.createElement('div')
         seasonParts.className = 'season__parts'
         
@@ -632,6 +685,10 @@ function showSeasons(seasons){
         containerHeadLinesFragment.append(seasonElm)
     } )
     containerHeadLines.append(containerHeadLinesFragment)
+    if(seasons.length === 1){
+        containerHeadLines.firstElementChild.style.height = `${containerHeadLines.firstElementChild.scrollHeight * .1}rem`
+        containerHeadLines.firstElementChild.classList.add('season--active')
+    }
 }
 
 function creatPartDetails(seasonParts , parts){
@@ -752,6 +809,29 @@ function aboutTeacherHandler(aboutTeacher){
     teacherdesc.innerText = aboutTeacher.description
 }
 
+function returnSummaryStudentsCommentInfo(studentsCommentInfo){
+    showStudentsComment(studentsCommentInfo , studentIndex)
+    return studentsCommentInfo
+}
+
+function showStudentsComment(studentsCommentInfo , index){
+    studentUsername.innerText = studentsCommentInfo[index].username
+    studentCareer.innerText = studentsCommentInfo[index].career
+    studentComment.innerText = studentsCommentInfo[index].comment
+    currentVideo.src = studentsCommentInfo[index].src    
+    nextVideo.src = studentsCommentInfo[index++].src
+}
+
+function setAnimationForVideo(studentsCommentInfo , index , event){
+    currentVideo.src = studentsCommentInfo[index].src
+    currentVideoParent.style.animation = 'currentVideo .4s ease-in-out'
+    currentVideoParent.onanimationend = () => currentVideoParent.style.animation = ''
+    if(event.target === nextVideoBtn || event.target === nextVideoBtn.firstElementChild) nextVideo.src = studentsCommentInfo[index + 1]
+    else if(event.target === prevVideoBtn || event.target === prevVideoBtn.firstElementChild) nextVideo.src = studentsCommentInfo[index - 1]
+    nextVideoParent.style.animation = 'nextVideo .4s ease-in-out'
+    nextVideoParent.onanimationend = () => nextVideoParent.style.animation = ''
+}
+
 function goUpFromFooter(){
     window.scrollTo(0 , 0)
 }
@@ -766,5 +846,17 @@ window.addEventListener('load' , loadingHandler)
 readMoreBtn.addEventListener('click' , event =>{
     readMoreBtnHandler()
     creatCircleForReadMoreBtn(event)
+})
+nextVideoBtn.addEventListener('click' , event =>{
+    studentIndex++
+    if(studentIndex > studentsCommentInfoGlobal.length - 1) studentIndex = 0
+    showStudentsComment(studentsCommentInfoGlobal , studentIndex)
+    setAnimationForVideo(studentsCommentInfoGlobal , studentIndex , event)
+})
+prevVideoBtn.addEventListener('click' , event =>{
+    studentIndex--
+    if(studentIndex < 0) studentIndex = studentsCommentInfoGlobal.length - 1
+    showStudentsComment(studentsCommentInfoGlobal , studentIndex)
+    setAnimationForVideo(studentsCommentInfoGlobal , studentIndex , event)
 })
 footerLogo.addEventListener('click' , goUpFromFooter)
