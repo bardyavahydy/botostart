@@ -937,13 +937,127 @@ body{
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
 }
+
+/* section-head-lines */
+
+.season__title{
+    font-weight: 700;
+}
+
+.season__title-span , .part__time{
+    color: var(--second-text-color);
+}
+
+.season__parts{
+    padding: 2rem;
+}
+
+.part{
+    background: #f5f5f5;
+    border: .1rem solid silver;
+    margin: 1.6rem 0;
+    padding: .8rem 1.2rem;
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+}
+
+.part__wrapper-top , .part__wrapper-bottom{
+    justify-content: space-between;
+}
+
+.part__number{
+    background: var(--main-color);
+    color: #fff;
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-left: 1rem;
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+}
+
+.part__title{
+    font-size: 1.4rem;
+}
+
+.part__time{
+    font-size: 1.2rem;
+    margin-left: 1.2rem;
+}
+
+.part__wrapper-bottom{
+    background: #fff;
+    padding: .6rem .8rem;
+    margin-top: .8rem;
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+}
+
+.part__watch-the-video , .part__dl{
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: var(--second-text-color);
+    border: .1rem solid silver;
+    padding: .2rem .5rem;
+    border-radius: .5rem;
+}
+
+.part__watch-the-video-svg , .part__dl-svg{
+    width: 1.8rem;
+    height: 1.8rem;
+    fill: var(--main-color);
+    margin-left: .5rem;
+}
+
+.container-video-player{
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9;
+    opacity: 0;
+    visibility: hidden;
+    transition: .25s ease-in;
+    -webkit-transition: .25s ease-in;
+    -moz-transition: .25s ease-in;
+    -ms-transition: .25s ease-in;
+    -o-transition: .25s ease-in;
+}
+
+.container-video-player--active{
+    cursor: pointer;
+    opacity: 1;
+    visibility: visible;
+}
+
+.video-player{
+    object-fit: cover;
+    width: 80rem;
+    height: 45rem;
+    border-radius: 1.5rem;
+    -webkit-border-radius: 1.5rem;
+    -moz-border-radius: 1.5rem;
+    -ms-border-radius: 1.5rem;
+    -o-border-radius: 1.5rem;
+}
+
 /* section-frequently-asked-questions */
 
-.container-frequently-asked-questions{
+.container-frequently-asked-questions , .container-head-lines{
     margin-top: 4rem;
 }
 
-.frequently-asked-question{
+.frequently-asked-question , .season{
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     height: 5.8rem;
     overflow-y: hidden;
@@ -952,27 +1066,26 @@ body{
     -moz-border-radius: 1rem;
     -ms-border-radius: 1rem;
     -o-border-radius: 1rem;
-    transition: height 150ms ease-in ;
-    -webkit-transition: height 150ms ease-in ;
-    -moz-transition: height 150ms ease-in ;
-    -ms-transition: height 150ms ease-in ;
-    -o-transition: height 150ms ease-in ;
+    transition: height 250ms ease-in ;
+    -webkit-transition: height 250ms ease-in ;
+    -moz-transition: height 250ms ease-in ;
+    -ms-transition: height 250ms ease-in ;
+    -o-transition: height 250ms ease-in ;
 }
 
-.frequently-asked-question:not(:last-child){
+.frequently-asked-question:not(:last-child) , .season:not(:last-child){
     margin-bottom: 1.6rem;
 }
 
-.frequently-asked-question__wrapper{
+.frequently-asked-question__wrapper , .season__wrapper{
     cursor: pointer;
     justify-content: space-between;
-    flex-direction: row-reverse;
     padding: 1.7rem 2rem;
-    transition: 150ms ease-in ;
-    -webkit-transition: 150ms ease-in ;
-    -moz-transition: 150ms ease-in ;
-    -ms-transition: 150ms ease-in ;
-    -o-transition: 150ms ease-in ;
+    transition: 250ms ease-in ;
+    -webkit-transition: 250ms ease-in ;
+    -moz-transition: 250ms ease-in ;
+    -ms-transition: 250ms ease-in ;
+    -o-transition: 250ms ease-in ;
     border-radius: 1rem;
     -webkit-border-radius: 1rem;
     -moz-border-radius: 1rem;
@@ -980,27 +1093,31 @@ body{
     -o-border-radius: 1rem;
 }
 
-.frequently-asked-question--active .frequently-asked-question__wrapper{
+.frequently-asked-question__wrapper{
+    flex-direction: row-reverse;
+}
+
+.frequently-asked-question--active .frequently-asked-question__wrapper , .season--active .season__wrapper{
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px;
     padding: 2.5rem 2rem;
 }
 
-.frequently-asked-question__title{
+.frequently-asked-question__title , .season__title{
     font-family: 'YekanBakhBold';
 }
 
-.frequently-asked-question__down-direction{
+.frequently-asked-question__down-direction , .season__down-direction{
     width: 2.4rem;
     height: 2.4rem;
     fill: var(--second-text-color);
-    transition: 150ms ease-in-out ;
-    -webkit-transition: 150ms ease-in-out ;
-    -moz-transition: 150ms ease-in-out ;
-    -ms-transition: 150ms ease-in-out ;
-    -o-transition: 150ms ease-in-out ;
+    transition: 250ms ease-in-out ;
+    -webkit-transition: 250ms ease-in-out ;
+    -moz-transition: 250ms ease-in-out ;
+    -ms-transition: 250ms ease-in-out ;
+    -o-transition: 250ms ease-in-out ;
 }
 
-.frequently-asked-question--active .frequently-asked-question__down-direction{
+.frequently-asked-question--active .frequently-asked-question__down-direction , .season--active .season__down-direction{
     transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
@@ -1263,6 +1380,11 @@ body{
         width: 100%;
     }
 
+    .video-player{
+        width: 50rem;
+        height: 28.1rem;
+    }
+
     .container-about-teacher{
         padding: 1rem 2.4rem 2.4rem;
     }
@@ -1398,11 +1520,29 @@ body{
         font-size: 1.4rem;
     }
 
-    .frequently-asked-question__title {
+    .part__number{
+        flex-shrink: 0;
+    }
+
+    .part__time-and-svg{
+        min-width: 6.3rem;
+    }
+
+    .part__time {
+        font-size: 1rem;
+        margin: 0 .5rem;
+    }
+
+    .video-player{
+        width: 30rem;
+        height: 16.9rem;
+    }
+
+    .frequently-asked-question__title , .season__title {
         font-size: 1.3rem;
     }
 
-    .frequently-asked-question__description {
+    .frequently-asked-question__description , .part__title{
         font-size: 1.1rem;
     }
     
@@ -1479,11 +1619,16 @@ body{
         font-size: 1.3rem;
     }
 
-    .frequently-asked-question , .frequently-asked-question__wrapper{
+    .video-player{
+        width: calc(100% - 2rem);
+        margin: 0 1rem;
+    }
+
+    .frequently-asked-question , .frequently-asked-question__wrapper , .season , .season__wrapper{
         height: 7.3rem;
     }
 
-    .frequently-asked-question__down-direction{
+    .frequently-asked-question__down-direction , .season__down-direction{
         margin-right: .5rem;
     }
 }
