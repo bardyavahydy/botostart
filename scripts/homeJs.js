@@ -197,7 +197,7 @@ function addCoursesToDom(){
 
         let courseViewCourse = $.createElement('a')
         courseViewCourse.className = 'course__link course__view-course center'
-        courseViewCourse.href = 'courseIndex.html?course='+ courseInfo.name +''
+        courseViewCourse.href = './docs/courseIndex.html?course='+ courseInfo.name +''
         courseViewCourse.innerText = 'مشاهده دوره'
         courseViewCourse.insertAdjacentHTML( 'beforeend' , '<svg class="course__arrow-svg" width="15" viewBox="0 0 20.884 27.105"><path d="M9.358,6.463a5,5,0,0,1,8.388,0l4.347,6.7A5,5,0,0,1,17.9,20.884H9.205a5,5,0,0,1-4.194-7.722Z" transform="translate(0 27.105) rotate(-90)" fill="#7e57c2"></path></svg>')
 
